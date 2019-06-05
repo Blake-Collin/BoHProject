@@ -1,3 +1,23 @@
 <resources>
-    <string name="app_name">BoHProject</string>
+  <string name="app_name">BoH Manager</string>
+  <string name="title_activity_view">ViewActivity</string>
+  <string name="tab_text_1">Attributes</string>
+  <string name="tab_text_2">Powers</string>
+  <string name="tab_text_3">Skills</string>
+  <string name="tab_text_4">Drawbacks/Advantages</string>
+  <string name="tab_text_5">Description</string>
+  <string name="attributes">Attributes</string>
+  <string name="powers">Powers</string>
+  <string name="dexStat">Dex</string>
+  <string name="strStat">Str</string>
+  <string name="bodyStat">Body</string>
+  <string name="intStat">Int</string>
+  <string name="willStat">Will</string>
+  <string name="mindStat">Mind</string>
+  <string name="inflStat">Infl</string>
+  <string name="auraStat">Aura</string>
+  <string name="spiritStat">Spirit</string>
+  <string name="wealthStat">Wealth</string>
+  <string name="heroPoints">Hero Points</string>
+  <string name="skills">Skills</string>
 </resources>
