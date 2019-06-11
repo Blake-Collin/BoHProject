@@ -14,13 +14,14 @@ import java.util.List;
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
-  int counttab;
+  int countTab;
 
-  public ViewPagerAdapter(FragmentManager fm, int counttab) {
+  public ViewPagerAdapter(FragmentManager fm, int countTab) {
     super(fm);
-    this.counttab = counttab;
+    this.countTab = countTab;
   }
 
+  //Get each tab and return the correct fragment
   @Override
   public Fragment getItem(int position) {
     switch (position) {
@@ -47,7 +48,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
   @Override
   public int getCount() {
-    return counttab;
+    return countTab;
   }
 
 

@@ -1,11 +1,11 @@
 <resources>
   <string name="app_name">BoH Manager</string>
   <string name="title_activity_view">ViewActivity</string>
-  <string name="tab_text_1">Attributes</string>
+  <string name="tab_text_1">Stats</string>
   <string name="tab_text_2">Powers</string>
   <string name="tab_text_3">Skills</string>
-  <string name="tab_text_4">Drawbacks/Advantages</string>
-  <string name="tab_text_5">Description</string>
+  <string name="tab_text_4">Draw/Advan</string>
+  <string name="tab_text_5">Desc.</string>
   <string name="attributes">Attributes</string>
   <string name="powers">Powers</string>
   <string name="dexStat">Dex</string>
@@ -20,4 +20,23 @@
   <string name="wealthStat">Wealth</string>
   <string name="heroPoints">Hero Points</string>
   <string name="skills">Skills</string>
+  <string name="desName">"Character Name: "</string>
+  <string name="desType">"Character Type: "</string>
+  <string name="desMotivation">"Motivation: "</string>
+  <string name="desAlterEgo">"Alter Ego: "</string>
+  <string name="desHeight">"Height: "</string>
+  <string name="desWeight">"Weight: "</string>
+  <string name="desHair">"Hair Color: "</string>
+  <string name="desEyeColor">"Eye Color: "</string>
+  <string name="desGroupAffiliation">"Group Affiliation: "</string>
+  <string name="desOccupation">"Occupation: "</string>
+  <string name="desBaseOfOperations">"Base of Operations: "</string>
+  <string name="desMartialStatus">"Martial Status: "</string>
+  <string name="desPersonality">"Personality: "</string>
+  <string name="desHistory">"History: "</string>
+  <string name="desDescription">"Description: "</string>
+  <string name="_5_9_quot">5\' 9\"</string>
+  <string name="desKnownRelatives">Known Relatives:</string>
+  <string name="description">Description</string>
+  <string name="drawAdvantages">Drawbacks/Advantages</string>
 </resources>
