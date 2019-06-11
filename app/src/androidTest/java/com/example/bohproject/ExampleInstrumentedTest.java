@@ -16,12 +16,34 @@ import static org.junit.Assert.*;
  */
 @RunWith(AndroidJUnit4.class)
 public class ExampleInstrumentedTest {
-    @Test
-    public void useAppContext() {
-        // Context of the app under test.
-        Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.bohproject", appContext.getPackageName());
-        assertEquals(4,2+2);
-    }
+  @Test
+  public void useAppContext() {
+    // Context of the app under test.
+    Context appContext = InstrumentationRegistry.getTargetContext();
+
+    assertEquals("com.example.bohproject", appContext.getPackageName());
+    assertEquals(4, 2 + 2);
+  }
+
+  @Test //Will test we cannot go negative but can do 0 or any number above.
+  public void CharacterAttributesTestValues() {
+
+  }
+
+  @Test //Test Name shouldn't be allowed to be blank or below 2 characters.
+  public void CharacterNamesAreNotBlank() {
+
+  }
+
+  @Test //Test powers APs do not allow below 0.
+  public void CharacterTestPowersValues() {
+
+  }
+
+  @Test //Test skills APs do not allow below 0.
+  public void CharacterTestSkillsValues() {
+
+  }
+
 }
