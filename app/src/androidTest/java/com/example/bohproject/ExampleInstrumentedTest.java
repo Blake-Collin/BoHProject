@@ -22,5 +22,6 @@ public class ExampleInstrumentedTest {
         Context appContext = InstrumentationRegistry.getTargetContext();
 
         assertEquals("com.example.bohproject", appContext.getPackageName());
+        assertEquals(4,2+2);
     }
 }
