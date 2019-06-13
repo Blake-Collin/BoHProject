@@ -32,24 +32,50 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"/>
   <ListView
-    android:id="@+id/listViewDrawbacksAdvantages"
-    android:layout_width="326dp"
+    android:id="@+id/listViewPowers"
+    android:layout_width="0dp"
     android:layout_height="0dp"
     android:layout_marginTop="24dp"
     android:layout_marginBottom="24dp"
     android:layout_marginStart="24dp"
     android:layout_marginEnd="24dp"
-    app:layout_constraintBottom_toTopOf="@+id/button"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/textView"/>
-  <Button
-    android:id="@+id/button"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="16dp"
-    android:layout_marginStart="24dp"
-    android:text="@string/addPowerButton"
     app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="1.0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/buttonPowerAdd"/>
+  <Button
+    android:id="@+id/buttonPowerAdd"
+    android:layout_width="109dp"
+    android:layout_height="40dp"
+    android:layout_marginTop="24dp"
+    android:layout_marginEnd="24dp"
+    android:onClick="onClick"
+    android:text="@string/addPowerButton"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/textView"/>
+  <EditText
+    android:id="@+id/editTextPowerName"
+    android:layout_width="189dp"
+    android:layout_height="40dp"
+    android:layout_marginStart="24dp"
+    android:ems="10"
+    android:inputType="textPersonName"
+    android:text="Name"
+    android:textSize="14sp"
+    app:layout_constraintBaseline_toBaselineOf="@+id/buttonPowerAdd"
     app:layout_constraintStart_toStartOf="parent"/>
+  <EditText
+    android:id="@+id/editTextPowerAPs"
+    android:layout_width="0dp"
+    android:layout_height="40dp"
+    android:layout_marginTop="24dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:ems="10"
+    android:inputType="number"
+    android:textAlignment="center"
+    app:layout_constraintEnd_toStartOf="@+id/buttonPowerAdd"
+    app:layout_constraintStart_toEndOf="@+id/editTextPowerName"
+    app:layout_constraintTop_toBottomOf="@+id/textView"/>
 </android.support.constraint.ConstraintLayout>

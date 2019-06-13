@@ -7,7 +7,7 @@
   xmlns:tools="http://schemas.android.com/tools">
 
   <ListView
-    android:id="@+id/listViewDrawbacksAdvantages"
+    android:id="@+id/listViewPowers"
     android:layout_width="0dp"
     android:layout_height="0dp"
     android:layout_marginTop="24dp"
