@@ -19,7 +19,7 @@ public class FragmentViewDrawAdvantage extends Fragment {
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
-    view = inflater.inflate(R.layout.draw_advantage_fragment,container,false );
+    view = inflater.inflate(R.layout.view_advantage_fragment,container,false );
     return view;
   }
 }

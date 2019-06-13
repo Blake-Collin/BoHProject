@@ -7,7 +7,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.example.bohproject.R;
 
 public class FragmentViewSkills extends Fragment {
 
@@ -20,7 +19,7 @@ public class FragmentViewSkills extends Fragment {
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
-    view = inflater.inflate(R.layout.skills_fragment,container,false);
+    view = inflater.inflate(R.layout.view_skills_fragment,container,false);
     return view;
   }
 }

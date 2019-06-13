@@ -12,13 +12,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class ViewActivity extends AppCompatActivity {
-
+public class EditActivity extends AppCompatActivity {
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_view);
+    setContentView(R.layout.activity_edit);
 
     //Bring in our Action Bar/Toolbar
     Toolbar toolbar = findViewById(R.id.toolbar);
@@ -36,10 +35,10 @@ public class ViewActivity extends AppCompatActivity {
 
     //Print in our View Pager which has references to all our fragments
     final ViewPager viewPager = findViewById(R.id.view_pager);
-    ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(),
+    EditPagerAdapter editPagerAdapter = new EditPagerAdapter(getSupportFragmentManager(),
         tabs.getTabCount());
 
-    viewPager.setAdapter(viewPagerAdapter);
+    viewPager.setAdapter(editPagerAdapter);
     viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabs));
 
     tabs.addOnTabSelectedListener(new BaseOnTabSelectedListener() {
@@ -58,7 +57,6 @@ public class ViewActivity extends AppCompatActivity {
 
       }
     });
-
   }
 
   /**
@@ -69,7 +67,7 @@ public class ViewActivity extends AppCompatActivity {
    */
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
-    getMenuInflater().inflate(R.menu.viewmenu, menu);
+    getMenuInflater().inflate(R.menu.editmenu, menu);
     return true;
   }
 
@@ -81,23 +79,22 @@ public class ViewActivity extends AppCompatActivity {
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
     // Handle item selection
-      switch (item.getItemId()) {
-        case (R.id.returnHome):
-          finish();
-          return true;
-        case (R.id.edit):
-          System.out.println("Edit has been pushed");
-          //Do something for Edit
-          Intent intent = new Intent(this, EditActivity.class );
-          startActivity(intent);
-          return true;
-        case (R.id.delete):
-          System.out.println("Delete has been pushed");
-          //Do something for delete
-          return true;
+    switch (item.getItemId()) {
+      case (R.id.returnHome):
+        finish();
+        return true;
+      case (R.id.save):
+        System.out.println("Save has been pushed");
+        //Do something for Edit
+        Intent intent = new Intent(this, ViewActivity.class );
+        startActivity(intent);
+        return true;
+      case (R.id.delete):
+        System.out.println("Delete has been pushed");
+        //Do something for delete
+        return true;
       default:
         return true;
     }
   }
-
 }

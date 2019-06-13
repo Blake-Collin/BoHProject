@@ -39,4 +39,9 @@
   <string name="desKnownRelatives">Known Relatives:</string>
   <string name="description">Description</string>
   <string name="drawAdvantages">Drawbacks/Advantages</string>
+  <string name="title_activity_edit">edit</string>
+  <string name="editView">Edit Character</string>
+  <string name="viewView">View Character</string>
+  <string name="addPowerButton">Add Power</string>
+  <string name="removePowerButton">Remove Power</string>
 </resources>

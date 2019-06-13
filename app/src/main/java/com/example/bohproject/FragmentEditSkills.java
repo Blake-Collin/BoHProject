@@ -8,19 +8,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class FragmentViewAttributes extends Fragment {
+public class FragmentEditSkills extends Fragment {
 
   View view;
 
-  public FragmentViewAttributes() {
+  public FragmentEditSkills() {
   }
 
   @Nullable
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
-
-    view = (View) inflater.inflate(R.layout.view_attributes_fragment, container, false);
+    view = inflater.inflate(R.layout.edit_skills_fragment,container,false);
     return view;
   }
+
 }
