@@ -31,5 +31,54 @@
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"/>
+  <Button
+    android:id="@+id/buttonAddDrawAdvantage"
+    android:layout_width="wrap_content"
+    android:layout_height="40dp"
+    android:layout_marginTop="24dp"
+    android:layout_marginEnd="16dp"
+    android:text="@string/addDrawAdvantageButton"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/textView"/>
+  <EditText
+    android:id="@+id/editDrawAdvantageName"
+    android:layout_width="0dp"
+    android:layout_height="40dp"
+    android:layout_marginTop="24dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="8dp"
+    android:ems="10"
+    android:inputType="textPersonName"
+    android:text="Name"
+    app:layout_constraintEnd_toStartOf="@+id/buttonAddDrawAdvantage"
+    app:layout_constraintHorizontal_bias="0.142"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/textView"/>
+  <EditText
+    android:id="@+id/editDrawAdvantageDescription"
+    android:layout_width="0dp"
+    android:layout_height="40dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:ems="10"
+    android:inputType="textCapSentences|textMultiLine"
+    android:text="Description"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/editDrawAdvantageName"/>
+  <ListView
+    android:layout_width="354dp"
+    android:layout_height="0dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.48"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/editDrawAdvantageDescription"
+    app:layout_constraintVertical_bias="0.272"/>
 
 </android.support.constraint.ConstraintLayout>

@@ -44,4 +44,6 @@
   <string name="viewView">View Character</string>
   <string name="addPowerButton">Add Power</string>
   <string name="removePowerButton">Remove Power</string>
+  <string name="addDrawAdvantageButton">Add</string>
+  <string name="addKnownRelativeButtonName">Add Relative</string>
 </resources>

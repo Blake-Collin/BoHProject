@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  xmlns:app="http://schemas.android.com/apk/res-auto">
+  android:layout_height="match_parent">
 
   <TextView
     android:id="@+id/textView"
@@ -46,11 +47,13 @@
           android:text="@string/desName"
           android:textAlignment="textEnd"
           android:textSize="18sp"/>
-        <TextView
+        <EditText
           android:id="@+id/textNameValue"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:text="John Doe"
+          android:autofillHints="John Smith"
+          android:inputType="text"
+          android:text=""
           android:textSize="18sp"/>
       </LinearLayout>
       <LinearLayout
@@ -64,12 +67,14 @@
           android:text="@string/desType"
           android:textAlignment="textEnd"
           android:textSize="18sp"/>
-        <TextView
+        <EditText
           android:id="@+id/textTypeValue"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_weight="1"
-          android:text="Crusader"
+          android:autofillHints="Crusader"
+          android:inputType="text"
+          android:text=""
           android:textSize="18sp"/>
       </LinearLayout>
       <LinearLayout
@@ -84,12 +89,14 @@
           android:text="@string/desMotivation"
           android:textAlignment="textEnd"
           android:textSize="18sp"/>
-        <TextView
+        <EditText
           android:id="@+id/textMotivationValue"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_weight="0"
-          android:text="Uphold Justice"
+          android:autofillHints="To Uphold Justice"
+          android:inputType="text"
+          android:text=""
           android:textSize="18sp"/>
       </LinearLayout>
       <LinearLayout
@@ -105,12 +112,14 @@
           android:text="@string/desAlterEgo"
           android:textAlignment="textEnd"
           android:textSize="18sp"/>
-        <TextView
+        <EditText
           android:id="@+id/textAlterEgoValue"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_weight="1"
-          android:text="Super John"
+          android:autofillHints="Superman"
+          android:inputType="text"
+          android:text=""
           android:textSize="18sp"/>
       </LinearLayout>
       <LinearLayout
@@ -125,13 +134,16 @@
           android:text="@string/desHeight"
           android:textAlignment="textEnd"
           android:textSize="18sp"/>
-        <TextView
-          android:id="@+id/textWeightHeigh"
+        <EditText
+          android:id="@+id/textWeightHeight"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_weight="1"
-          android:text="5 9"
-          android:textSize="18sp"/>
+          android:autofillHints="5 9"
+          android:inputType="text"
+          android:text=""
+          android:textSize="18sp"
+          />
       </LinearLayout>
       <LinearLayout
         android:layout_width="match_parent"
@@ -145,12 +157,14 @@
           android:text="@string/desWeight"
           android:textAlignment="textEnd"
           android:textSize="18sp"/>
-        <TextView
+        <EditText
           android:id="@+id/textWeightValue"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_weight="0"
-          android:text="150 lbs"
+          android:autofillHints="150lbs"
+          android:inputType="text"
+          android:text=""
           android:textSize="18sp"/>
       </LinearLayout>
       <LinearLayout
@@ -165,12 +179,14 @@
           android:text="@string/desHair"
           android:textAlignment="textEnd"
           android:textSize="18sp"/>
-        <TextView
+        <EditText
           android:id="@+id/textHairValue"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_weight="1"
-          android:text="Brown"
+          android:autofillHints="Brown"
+          android:inputType="text"
+          android:text=""
           android:textSize="18sp"/>
       </LinearLayout>
       <LinearLayout
@@ -185,12 +201,14 @@
           android:text="@string/desEyeColor"
           android:textAlignment="textEnd"
           android:textSize="18sp"/>
-        <TextView
+        <EditText
           android:id="@+id/textEyeValue"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_weight="1"
-          android:text="Brown"
+          android:autofillHints="Brown"
+          android:inputType="text"
+          android:text=""
           android:textSize="18sp"/>
       </LinearLayout>
       <LinearLayout
@@ -205,12 +223,14 @@
           android:text="@string/desGroupAffiliation"
           android:textAlignment="textEnd"
           android:textSize="18sp"/>
-        <TextView
+        <EditText
           android:id="@+id/textGroupAffiliationValue"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_weight="1"
-          android:text="Missing Persons"
+          android:autofillHints="Young Avengers"
+          android:inputType="text"
+          android:text=""
           android:textSize="18sp"/>
       </LinearLayout>
       <LinearLayout
@@ -225,12 +245,14 @@
           android:text="@string/desOccupation"
           android:textAlignment="textEnd"
           android:textSize="18sp"/>
-        <TextView
+        <EditText
           android:id="@+id/textOccupationValue"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_weight="1"
-          android:text="Unkonwn Person"
+          android:autofillHints="Doctor"
+          android:inputType="text"
+          android:text=""
           android:textSize="18sp"/>
       </LinearLayout>
       <LinearLayout
@@ -245,12 +267,14 @@
           android:text="@string/desBaseOfOperations"
           android:textAlignment="textEnd"
           android:textSize="16sp"/>
-        <TextView
+        <EditText
           android:id="@+id/textBaseOfOperationsValue"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_weight="1"
-          android:text="Anywhere"
+          android:autofillHints="The Hall of Justice"
+          android:inputType="text"
+          android:text=""
           android:textSize="18sp"/>
       </LinearLayout>
       <LinearLayout
@@ -265,12 +289,14 @@
           android:text="@string/desMartialStatus"
           android:textAlignment="textEnd"
           android:textSize="18sp"/>
-        <TextView
+        <EditText
           android:id="@+id/textMartialStatusValue"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_weight="1"
-          android:text="Single"
+          android:autofillHints="Married"
+          android:inputType="text"
+          android:text=""
           android:textSize="18sp"/>
       </LinearLayout>
       <LinearLayout
@@ -285,12 +311,14 @@
           android:text="@string/desPersonality"
           android:textAlignment="textEnd"
           android:textSize="18sp"/>
-        <TextView
+        <EditText
           android:id="@+id/textPersonalityValue"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_weight="1"
-          android:text="Crazy"
+          android:autofillHints="Honest"
+          android:inputType="text"
+          android:text=""
           android:textSize="18sp"/>
       </LinearLayout>
       <LinearLayout
@@ -304,11 +332,13 @@
           android:layout_height="wrap_content"
           android:text="@string/desHistory"
           android:textSize="18sp"/>
-        <TextView
+        <EditText
           android:id="@+id/textView36"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:text="Found out back alone. Found out back alone. Found out back alone. Found out back alone. Found out back alone. Found out back alone. Found out back alone. Found out back alone. "
+          android:autofillHints=""
+          android:inputType="textCapSentences|textMultiLine"
+          android:text=""
           android:textSize="18sp"/>
       </LinearLayout>
       <LinearLayout
@@ -321,12 +351,33 @@
           android:layout_height="wrap_content"
           android:text="@string/desDescription"
           android:textSize="18sp"/>
-        <TextView
+        <EditText
           android:id="@+id/textDescriptionValue"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:text="He walks with a limb and kinda smells ripe. Maybe he is dead or just lost who knows."
+          android:autofillHints=""
+          android:inputType="textCapSentences|textMultiLine"
+          android:text=""
           android:textSize="18sp"/>
+      </LinearLayout>
+      <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <EditText
+          android:id="@+id/editTextRelativeAdd"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_weight="0"
+          android:ems="10"
+          android:inputType="textPersonName"
+          />
+        <Button
+          android:id="@+id/buttonAddRelative"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_weight="0"
+          android:text="@string/addKnownRelativeButtonName"/>
       </LinearLayout>
       <LinearLayout
         android:id="@+id/textHistoryValue"
@@ -340,9 +391,11 @@
           android:text="@string/desKnownRelatives"
           android:textSize="18sp"/>
         <ListView
+          android:id="@+id/listViewKnownRelatives"
           android:layout_width="match_parent"
           android:layout_height="match_parent"/>
       </LinearLayout>
+
     </LinearLayout>
   </ScrollView>
 
