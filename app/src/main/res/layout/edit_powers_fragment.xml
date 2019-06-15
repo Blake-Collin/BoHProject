@@ -60,8 +60,8 @@
     android:layout_height="40dp"
     android:layout_marginStart="24dp"
     android:ems="10"
+    android:hint="Power Name"
     android:inputType="textPersonName"
-    android:text="Name"
     android:textSize="14sp"
     app:layout_constraintBaseline_toBaselineOf="@+id/buttonPowerAdd"
     app:layout_constraintStart_toStartOf="parent"/>
@@ -73,6 +73,7 @@
     android:layout_marginStart="8dp"
     android:layout_marginEnd="8dp"
     android:ems="10"
+    android:hint="1"
     android:inputType="number"
     android:textAlignment="center"
     app:layout_constraintEnd_toStartOf="@+id/buttonPowerAdd"

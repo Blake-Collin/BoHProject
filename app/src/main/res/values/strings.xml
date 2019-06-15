@@ -35,7 +35,6 @@
   <string name="desPersonality">"Personality: "</string>
   <string name="desHistory">"History: "</string>
   <string name="desDescription">"Description: "</string>
-  <string name="_5_9_quot">5\' 9\"</string>
   <string name="desKnownRelatives">Known Relatives:</string>
   <string name="description">Description</string>
   <string name="drawAdvantages">Drawbacks/Advantages</string>
@@ -46,4 +45,6 @@
   <string name="removePowerButton">Remove Power</string>
   <string name="addDrawAdvantageButton">Add</string>
   <string name="addKnownRelativeButtonName">Add Relative</string>
+  <string name="addSkillButtonText">Add Skill</string>
+  <string name="addSubSkillButtonText">Add Sub-Skill</string>
 </resources>

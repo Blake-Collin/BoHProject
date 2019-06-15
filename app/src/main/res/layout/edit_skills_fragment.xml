@@ -10,15 +10,14 @@
     android:id="@+id/listViewPowers"
     android:layout_width="0dp"
     android:layout_height="0dp"
-    android:layout_marginTop="24dp"
+    android:layout_marginTop="8dp"
     android:layout_marginBottom="24dp"
     android:layout_marginStart="24dp"
     android:layout_marginEnd="24dp"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/textView"
-    app:layout_constraintVertical_bias="1.0"/>
+    app:layout_constraintTop_toBottomOf="@+id/buttonAddSubSkill"/>
   <TextView
     android:id="@+id/section_label"
     android:layout_width="wrap_content"
@@ -44,4 +43,49 @@
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"/>
+  <Button
+    android:id="@+id/buttonAddSkill"
+    android:layout_width="wrap_content"
+    android:layout_height="40dp"
+    android:layout_marginTop="24dp"
+    android:layout_marginEnd="24dp"
+    android:onClick="onClick"
+    android:text="@string/addSkillButtonText"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/textView"/>
+  <EditText
+    android:id="@+id/editTextSkillValue"
+    android:layout_width="0dp"
+    android:layout_height="40dp"
+    android:layout_marginStart="24dp"
+    android:layout_marginEnd="8dp"
+    android:ems="10"
+    android:hint="Skill Name"
+    android:inputType="textPersonName"
+    app:layout_constraintBaseline_toBaselineOf="@+id/buttonAddSkill"
+    app:layout_constraintEnd_toStartOf="@+id/buttonAddSkill"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintStart_toStartOf="parent"/>
+  <Button
+    android:id="@+id/buttonAddSubSkill"
+    android:layout_width="wrap_content"
+    android:layout_height="40dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="24dp"
+    android:onClick="onClick"
+    android:text="@string/addSubSkillButtonText"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/buttonAddSkill"/>
+  <EditText
+    android:id="@+id/editTextSubSkillValue"
+    android:layout_width="0dp"
+    android:layout_height="40dp"
+    android:layout_marginStart="24dp"
+    android:layout_marginEnd="8dp"
+    android:ems="10"
+    android:hint="Subskill Name"
+    android:inputType="textPersonName"
+    app:layout_constraintBaseline_toBaselineOf="@+id/buttonAddSubSkill"
+    app:layout_constraintEnd_toStartOf="@+id/buttonAddSubSkill"
+    app:layout_constraintStart_toStartOf="parent"/>
 </android.support.constraint.ConstraintLayout>

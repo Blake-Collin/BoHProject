@@ -25,6 +25,7 @@ public class Attributes {
     this.aura = 1;
     this.spirit = 1;
     this.wealth = 1;
+    this.heroPoints = 0;
   }
 
   //Getters
@@ -115,5 +116,24 @@ public class Attributes {
 
   public void setHeroPoints(int heroPoints) {
     this.heroPoints = heroPoints;
+  }
+
+  //To String for Testing
+
+  @Override
+  public String toString() {
+    return "Attributes{" +
+        "str=" + str +
+        ", dex=" + dex +
+        ", body=" + body +
+        ", Int=" + Int +
+        ", will=" + will +
+        ", mind=" + mind +
+        ", infl=" + infl +
+        ", aura=" + aura +
+        ", spirit=" + spirit +
+        ", wealth=" + wealth +
+        ", heroPoints=" + heroPoints +
+        '}';
   }
 }

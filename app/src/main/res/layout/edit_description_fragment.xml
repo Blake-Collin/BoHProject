@@ -52,6 +52,7 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:autofillHints="John Smith"
+          android:hint="John Smith"
           android:inputType="text"
           android:text=""
           android:textSize="18sp"/>
@@ -370,8 +371,8 @@
           android:layout_height="wrap_content"
           android:layout_weight="0"
           android:ems="10"
-          android:inputType="textPersonName"
-          />
+          android:hint="Brother - Bubba"
+          android:inputType="textPersonName"/>
         <Button
           android:id="@+id/buttonAddRelative"
           android:layout_width="wrap_content"
