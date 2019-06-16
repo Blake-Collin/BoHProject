@@ -27,7 +27,7 @@ public class FragmentEditSkills extends Fragment implements OnClickListener {
       @Nullable Bundle savedInstanceState) {
     view = inflater.inflate(R.layout.edit_skills_fragment,container,false);
 
-    //Button Setups
+    //Button listener Setups
     Button b = (Button) view.findViewById(R.id.buttonAddSkill);
     Button b2 = (Button) view.findViewById(R.id.buttonAddSubSkill);
     b.setOnClickListener(this);
@@ -53,17 +53,20 @@ public class FragmentEditSkills extends Fragment implements OnClickListener {
 
     //Get EditTexts
     EditText editTextSkillName = view.findViewById(R.id.editTextSkillValue);
+    EditText editTextAPS = view.findViewById(R.id.editTextSkillAPValue);
 
     //Assign Values
     String name = editTextSkillName.getText().toString();
+    int num = Integer.parseInt(editTextAPS.getText().toString());
 
-    System.out.println("Skill Name: " + name + "\n" + "Subskills: " + this.subSkills);
+    System.out.println("Skill Name: " + name + " at " + num + "\n" + "Subskills: " + this.subSkills);
 
     //Get character here and add the new power item.
 
 
     //Clear Inputs
     editTextSkillName.setText("");
+    editTextAPS.setText("1");
     this.subSkills.clear();
   }
 
