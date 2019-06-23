@@ -29,7 +29,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     testImplementation 'junit:junit:4.12'
     implementation 'com.google.code.gson:gson:2.8.5'
-    implementation 'com.amazonaws:aws-android-sdk-core:2.6.+'
-    implementation 'com.amazonaws:aws-android-sdk-ddb:2.6.+'
-    implementation 'com.amazonaws:aws-android-sdk-ddb-document:2.6.+'
+    implementation 'com.amazonaws:aws-android-sdk-core:2.13.+'
+    implementation 'com.amazonaws:aws-android-sdk-ddb:2.13.+'
+    implementation 'com.amazonaws:aws-android-sdk-ddb-document:2.13.+'
 }
