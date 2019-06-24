@@ -47,6 +47,6 @@
     <string name="addKnownRelativeButtonName">Add Relative</string>
     <string name="addSkillButtonText">Add Skill</string>
     <string name="addSubSkillButtonText">Add Sub-Skill</string>
-    <string name="search">Search</string>
     <string name="new_character">New Character</string>
+    <string name="search_character">Search Character</string>
 </resources>
