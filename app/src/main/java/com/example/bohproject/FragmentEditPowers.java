@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -13,6 +14,7 @@ import android.widget.EditText;
 
 public class FragmentEditPowers extends Fragment implements OnClickListener {
 
+  static final String TAG = "FragmentEditPowers";
   View view;
 
   public FragmentEditPowers() {
@@ -46,6 +48,7 @@ public class FragmentEditPowers extends Fragment implements OnClickListener {
 
   public void onPowerAdd() {
 
+    Log.i(TAG, "Add Power was Pressed");
     //Get EditTexts
     EditText editTextPowerName = view.findViewById(R.id.editTextPowerName);
     EditText editTextPowerAPs = view.findViewById(R.id.editTextPowerAPs);
@@ -54,14 +57,20 @@ public class FragmentEditPowers extends Fragment implements OnClickListener {
     String name = editTextPowerName.getText().toString();
     int APs = Integer.parseInt(editTextPowerAPs.getText().toString());
 
+    Log.i(TAG, "Temp Values assigned");
+
     System.out.println("Power: " + name + "\n" + "APs: " + APs);
 
     //Get character here and add the new power item.
 
 
+
+    Log.i(TAG, "Power Added");
+
     //Clear Inputs
     editTextPowerAPs.setText("");
     editTextPowerName.setText("");
+    Log.i(TAG, "Boxes emptied for next power to add.");
   }
 
 
