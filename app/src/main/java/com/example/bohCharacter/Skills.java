@@ -9,8 +9,10 @@ public class Skills {
   private int APs;
   private ArrayList<String> subskills;
 
-  public Skills() {
-    subskills = new ArrayList<>();
+  public Skills(String name, int APs, ArrayList<String> subskills) {
+    this.name = name;
+    this.APs = APs;
+    this.subskills = subskills;
   }
 
   //Getters

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -11,10 +12,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import com.example.bohCharacter.DrawAdvantages;
+import com.example.bohCharacter.Skills;
 import java.util.ArrayList;
 
 public class FragmentEditSkills extends Fragment implements OnClickListener {
 
+  static final String TAG = "FragmentEditSkills";
   View view;
   ArrayList<String> subSkills = new ArrayList<>();
 
@@ -32,6 +36,11 @@ public class FragmentEditSkills extends Fragment implements OnClickListener {
     Button b2 = (Button) view.findViewById(R.id.buttonAddSubSkill);
     b.setOnClickListener(this);
     b2.setOnClickListener(this);
+
+    Log.i(TAG, "Added Button Listeners");
+
+    //Update Skill List
+    updateSkillList();
 
     return view;
   }
@@ -59,15 +68,21 @@ public class FragmentEditSkills extends Fragment implements OnClickListener {
     String name = editTextSkillName.getText().toString();
     int num = Integer.parseInt(editTextAPS.getText().toString());
 
-    System.out.println("Skill Name: " + name + " at " + num + "\n" + "Subskills: " + this.subSkills);
 
-    //Get character here and add the new power item.
+    Log.i(TAG,"Skill Name: " + name + " at " + num + "\n" + "Subskills: " + this.subSkills);
 
+    //Get character here and add the new Skills item.
+    ((EditActivity) getActivity()).character.getSkills().add(new Skills(name, num, subSkills));
+    Log.i(TAG, "Skill Added");
 
-    //Clear Inputs
+    //reset Inputs
+    Log.i(TAG, "Reset Inputs");
     editTextSkillName.setText("");
     editTextAPS.setText("1");
     this.subSkills.clear();
+
+    //Update Skill List
+    updateSkillList();
   }
 
   public void onAddSubSkill() {
@@ -76,7 +91,7 @@ public class FragmentEditSkills extends Fragment implements OnClickListener {
     //Assign Values
     String name = editTextSubSkillName.getText().toString();
 
-    System.out.println("Added Subskill: " + name);
+    Log.i(TAG, "Added Subskill: " + name);
 
     this.subSkills.add(name);
 
@@ -87,5 +102,9 @@ public class FragmentEditSkills extends Fragment implements OnClickListener {
     editTextSubSkillName.setText("");
   }
 
+  //Update Skill List
+  public void updateSkillList() {
+    Log.i(TAG, "Skills List Updating");
+  }
 
 }

@@ -24,7 +24,7 @@ public class Attributes {
     this.infl = 1;
     this.aura = 1;
     this.spirit = 1;
-    this.wealth = 1;
+    this.wealth = 0;
     this.heroPoints = 0;
   }
 

@@ -29,6 +29,8 @@ public class FragmentEditPowers extends Fragment implements OnClickListener {
     Button b = (Button) view.findViewById(R.id.buttonPowerAdd);
     b.setOnClickListener(this);
 
+
+
     return view;
   }
 
@@ -59,10 +61,10 @@ public class FragmentEditPowers extends Fragment implements OnClickListener {
 
     Log.i(TAG, "Temp Values assigned");
 
-    System.out.println("Power: " + name + "\n" + "APs: " + APs);
+    Log.i(TAG,"Power: " + name + "\n" + "APs: " + APs);
 
     //Get character here and add the new power item.
-
+    ((EditActivity) getActivity()).character.addPower(name, APs);
 
 
     Log.i(TAG, "Power Added");
@@ -73,5 +75,9 @@ public class FragmentEditPowers extends Fragment implements OnClickListener {
     Log.i(TAG, "Boxes emptied for next power to add.");
   }
 
+  public void updatePowerList() {
+    //Will use this to update our Powerlist later
+    Log.i(TAG, "powerList Updating");
+  }
 
 }

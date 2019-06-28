@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import com.example.bohCharacter.Character;
+import com.google.gson.Gson;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,7 +29,10 @@ public class MainActivity extends AppCompatActivity {
   }
 
   protected void onPress(View view) {
-    Intent intent = new Intent(this, ViewActivity.class );
+    Intent intent = new Intent(this, EditActivity.class );
+    Gson gson = new Gson();
+    String temp = gson.toJson(new Character());
+    intent.putExtra("character", temp);
     startActivity(intent);
   }
 }

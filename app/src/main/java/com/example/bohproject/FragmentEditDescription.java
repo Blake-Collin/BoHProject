@@ -13,6 +13,7 @@ import android.widget.EditText;
 
 public class FragmentEditDescription extends Fragment implements OnClickListener {
 
+  static final String TAG = "FragmentEditDescription";
   View view;
 
   public FragmentEditDescription() {
