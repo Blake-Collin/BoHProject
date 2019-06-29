@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnFocusChangeListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -307,7 +309,7 @@ public class FragmentEditDescription extends Fragment implements OnClickListener
 
 
     //KnownRelations Fix
-    ListView lv = (ListView)view.findViewById(R.id.listViewKnownRelatives);  // your listview inside scrollview
+    ListView lv = (ListView)view.findViewById(R.id.listViewKnownRelatives);
     lv.setOnTouchListener(new ListView.OnTouchListener() {
       @Override
       public boolean onTouch(View v, MotionEvent event) {
@@ -329,6 +331,19 @@ public class FragmentEditDescription extends Fragment implements OnClickListener
         return true;
       }
 
+    });
+    //Adding long click deletion
+    lv.setOnItemLongClickListener(new OnItemLongClickListener() {
+
+      @Override
+      public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+        Log.i(TAG, "Delete: " + ((EditActivity) getActivity()).character.getDescription().getKnownRelatives().get(position));
+        ((EditActivity) getActivity()).character.getDescription().getKnownRelatives().remove(position);
+
+        //Update after deletion
+        updateRelationsList();
+        return false;
+      }
     });
 
 

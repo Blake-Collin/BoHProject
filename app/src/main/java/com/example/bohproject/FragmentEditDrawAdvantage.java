@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -42,6 +44,22 @@ public class FragmentEditDrawAdvantage extends Fragment implements OnClickListen
     b.setOnClickListener(this);
     Log.i(TAG, "Added Button Listener");
 
+
+    //Adding long click deletion
+    ListView lv = (ListView)view.findViewById(R.id.listViewDrawAdvan);
+    lv.setOnItemLongClickListener(new OnItemLongClickListener() {
+
+      @Override
+      public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+
+        Log.i(TAG, "Delete: " + ((EditActivity) getActivity()).character.getDrawAdvantages().get(position).toString());
+        ((EditActivity) getActivity()).character.getDrawAdvantages().remove(position);
+
+        //Update after deletion
+        updateDrawAdvanList();
+        return false;
+      }
+    });
 
     //Update List
     updateDrawAdvanList();
