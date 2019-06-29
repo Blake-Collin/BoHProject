@@ -6,11 +6,12 @@ public class Description {
 
   private String name;
   private String type;
+  private String motivation;
   private String alterEgo;
   private String height;
   private String weight;
   private String eyeColor;
-  private String groupAffliatiion;
+  private String groupAffiliation;
   private String occupation;
   ArrayList<String> knownRelatives;
   private String baseOfOperations;
@@ -23,11 +24,12 @@ public class Description {
   public Description() {
     this.name = "";
     this.type = "";
+    this.motivation = "";
     this.alterEgo = "";
     this.height = "";
     this.weight = "";
     this.eyeColor = "";
-    this.groupAffliatiion = "";
+    this.groupAffiliation = "";
     this.occupation = "";
     this.knownRelatives = new ArrayList<>();
     this.baseOfOperations = "";
@@ -62,8 +64,8 @@ public class Description {
     return eyeColor;
   }
 
-  public String getGroupAffliatiion() {
-    return groupAffliatiion;
+  public String getGroupAffiliation() {
+    return groupAffiliation;
   }
 
   public String getOccupation() {
@@ -94,6 +96,10 @@ public class Description {
     return description;
   }
 
+  public String getMotivation() {
+    return motivation;
+  }
+
   //Setters
   public void setName(String name) {
     this.name = name;
@@ -119,8 +125,8 @@ public class Description {
     this.eyeColor = eyeColor;
   }
 
-  public void setGroupAffliatiion(String groupAffliatiion) {
-    this.groupAffliatiion = groupAffliatiion;
+  public void setGroupAffiliation(String groupAffiliation) {
+    this.groupAffiliation = groupAffiliation;
   }
 
   public void setOccupation(String occupation) {
@@ -149,5 +155,9 @@ public class Description {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public void setMotivation(String motivation) {
+    this.motivation = motivation;
   }
 }

@@ -11,10 +11,13 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
+import com.example.ListAdapters.PowerAdapter;
 
 public class FragmentEditPowers extends Fragment implements OnClickListener {
 
   static final String TAG = "FragmentEditPowers";
+  private PowerAdapter powerAdapter;
   View view;
 
   public FragmentEditPowers() {
@@ -26,10 +29,13 @@ public class FragmentEditPowers extends Fragment implements OnClickListener {
       @Nullable Bundle savedInstanceState) {
     view = inflater.inflate(R.layout.edit_powers_fragment, container, false);
 
+
     Button b = (Button) view.findViewById(R.id.buttonPowerAdd);
     b.setOnClickListener(this);
+    Log.i(TAG, "Added Button Listener");
 
-
+    //Update Power List
+    updatePowerList();
 
     return view;
   }
@@ -73,11 +79,17 @@ public class FragmentEditPowers extends Fragment implements OnClickListener {
     editTextPowerAPs.setText("");
     editTextPowerName.setText("");
     Log.i(TAG, "Boxes emptied for next power to add.");
+
+    //Update Power List
+    updatePowerList();
   }
 
   public void updatePowerList() {
     //Will use this to update our Powerlist later
     Log.i(TAG, "powerList Updating");
+    powerAdapter = new PowerAdapter((EditActivity) getActivity(), ((EditActivity) getActivity()).character.getPowers());
+    ListView listPowers = (ListView) view.findViewById(R.id.listViewPowers);
+    listPowers.setAdapter(powerAdapter);
   }
 
 }

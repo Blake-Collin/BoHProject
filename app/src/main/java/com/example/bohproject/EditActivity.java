@@ -23,6 +23,7 @@ public class EditActivity extends AppCompatActivity {
 
   static final String TAG = "EditActivity";
   protected Character character;
+  protected String name;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +77,7 @@ public class EditActivity extends AppCompatActivity {
     String temp = intent.getStringExtra("character");
     Gson gson = new Gson();
     this.character = gson.fromJson(temp, Character.class);
+    this.name = this.character.getDescription().getName();
   }
 
   /**

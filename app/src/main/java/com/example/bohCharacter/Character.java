@@ -6,7 +6,7 @@ public class Character {
 
   //Variables
   private Attributes attributes;
-  private ArrayList<Powers> powers;
+  private ArrayList<Power> powers;
   private ArrayList<Skills> skills;
   private ArrayList<DrawAdvantages> drawAdvantages;
   private Description description;
@@ -21,11 +21,11 @@ public class Character {
 
   //Functions
   public void addPower(String name, int APs){
-    Powers newPower = new Powers(name, APs);
+    Power newPower = new Power(name, APs);
     powers.add(newPower);
   }
 
-  public void removePower(Powers power) {
+  public void removePower(Power power) {
      this.powers.remove(power);
   }
 
@@ -34,7 +34,7 @@ public class Character {
     return attributes;
   }
 
-  public ArrayList<Powers> getPowers() {
+  public ArrayList<Power> getPowers() {
     return powers;
   }
 
@@ -56,7 +56,7 @@ public class Character {
     this.attributes = attributes;
   }
 
-  public void setPowers(ArrayList<Powers> powers) {
+  public void setPowers(ArrayList<Power> powers) {
     this.powers = powers;
   }
 

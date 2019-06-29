@@ -1,12 +1,12 @@
 package com.example.bohCharacter;
 
-public class Powers {
+public class Power {
 
   //Variables
   private String name;
   private int APs;
 
-  public Powers(String name, int APs) {
+  public Power(String name, int APs) {
     this.name = name;
     this.APs = APs;
   }
