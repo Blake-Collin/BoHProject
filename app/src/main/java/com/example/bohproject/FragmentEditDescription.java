@@ -13,12 +13,10 @@ import android.view.View.OnFocusChangeListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import com.example.ListAdapters.KnownRelationsAdapter;
-import com.example.ListAdapters.PowerAdapter;
 
 
 /**
