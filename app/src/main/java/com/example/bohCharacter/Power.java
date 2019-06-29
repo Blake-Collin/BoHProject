@@ -1,5 +1,11 @@
 package com.example.bohCharacter;
 
+/**
+ * Character Power Object Type
+ *
+ * @auithor Collin Blake
+ * @since 6-29-2019
+ */
 public class Power {
 
   //Variables

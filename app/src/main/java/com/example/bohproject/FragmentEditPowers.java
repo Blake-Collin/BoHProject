@@ -14,6 +14,12 @@ import android.widget.EditText;
 import android.widget.ListView;
 import com.example.ListAdapters.PowerAdapter;
 
+/**
+ * FragmentEditPowers is the fragment view for out Tab layout of editing a character's powers
+ *
+ * @author Collin Blake
+ * @since 6-29-2019
+ */
 public class FragmentEditPowers extends Fragment implements OnClickListener {
 
   static final String TAG = "FragmentEditPowers";
@@ -23,6 +29,15 @@ public class FragmentEditPowers extends Fragment implements OnClickListener {
   public FragmentEditPowers() {
   }
 
+
+  /**
+   * onCreateView to create both our button leistener and power list update function.
+   *
+   * @param inflater
+   * @param container
+   * @param savedInstanceState
+   * @return
+   */
   @Nullable
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -54,6 +69,10 @@ public class FragmentEditPowers extends Fragment implements OnClickListener {
     }
   }
 
+  /**
+   * onPowerAdd Funciton
+   *
+   */
   public void onPowerAdd() {
 
     Log.i(TAG, "Add Power was Pressed");
@@ -84,6 +103,9 @@ public class FragmentEditPowers extends Fragment implements OnClickListener {
     updatePowerList();
   }
 
+  /**
+   * Update our powerlist with the powers of character.
+   */
   public void updatePowerList() {
     //Will use this to update our Powerlist later
     Log.i(TAG, "powerList Updating");

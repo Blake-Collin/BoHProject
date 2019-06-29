@@ -15,6 +15,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import com.example.bohCharacter.Character;
 
+/**
+ * FragmentEdit Attributes will allow you to edit a character's attributes
+ *
+ * @Author Collin Blake
+ * @since 6-29-2019
+ */
 public class FragmentEditAttributes extends Fragment {
 
   static final String TAG = "FragmentEditAttributes";
@@ -23,6 +29,16 @@ public class FragmentEditAttributes extends Fragment {
   public FragmentEditAttributes() {
   }
 
+  /**
+   * onCreateView will create our metric ton of listeners which save the value once focus is lost
+   * it worked better and caused less function calling instead of doing on change which caused a bunch
+   * of issues
+   *
+   * @param inflater
+   * @param container
+   * @param savedInstanceState
+   * @return
+   */
   @Nullable
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,

@@ -11,6 +11,12 @@ import com.example.bohproject.R;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * View Pager adapter for view activity
+ *
+ * @author Collin Blake
+ * @since 6-29-2019
+ */
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 

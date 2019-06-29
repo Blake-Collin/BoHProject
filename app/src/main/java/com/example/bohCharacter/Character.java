@@ -7,8 +7,8 @@ public class Character {
   //Variables
   private Attributes attributes;
   private ArrayList<Power> powers;
-  private ArrayList<Skills> skills;
-  private ArrayList<DrawAdvantages> drawAdvantages;
+  private ArrayList<Skill> skills;
+  private ArrayList<DrawAdvantage> drawAdvantages;
   private Description description;
 
   public Character() {
@@ -38,11 +38,11 @@ public class Character {
     return powers;
   }
 
-  public ArrayList<Skills> getSkills() {
+  public ArrayList<Skill> getSkills() {
     return skills;
   }
 
-  public ArrayList<DrawAdvantages> getDrawAdvantages() {
+  public ArrayList<DrawAdvantage> getDrawAdvantages() {
     return drawAdvantages;
   }
 
@@ -60,12 +60,12 @@ public class Character {
     this.powers = powers;
   }
 
-  public void setSkills(ArrayList<Skills> skills) {
+  public void setSkills(ArrayList<Skill> skills) {
     this.skills = skills;
   }
 
   public void setDrawAdvantages(
-      ArrayList<DrawAdvantages> drawAdvantages) {
+      ArrayList<DrawAdvantage> drawAdvantages) {
     this.drawAdvantages = drawAdvantages;
   }
 

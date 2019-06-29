@@ -2,6 +2,12 @@ package com.example.bohCharacter;
 
 import java.util.ArrayList;
 
+/**
+ * Character description object
+ *
+ * @auithor Collin Blake
+ * @since 6-29-2019
+ */
 public class Description {
 
   private String name;

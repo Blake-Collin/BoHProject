@@ -7,37 +7,34 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.example.bohCharacter.Power;
 import com.example.bohproject.R;
 import java.util.ArrayList;
 
-
 /**
- * power Custom list Adapter for displaying purposes.
+ * relations Custom list Adapter for displaying purposes.
  *
  * @author Collin Blake
  * @since 6-29-2019
  */
-
-public class PowerAdapter extends BaseAdapter {
+public class KnownRelationsAdapter extends BaseAdapter {
   Activity context;
-  ArrayList<Power> powers;
+  ArrayList<String> relations;
   private static LayoutInflater inflater = null;
 
-  public PowerAdapter( Activity context, ArrayList<Power> powers) {
+  public KnownRelationsAdapter( Activity context, ArrayList<String> relations) {
     this.context  = context;
-    this.powers = powers;
+    this.relations = relations;
     inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
   }
 
   @Override
   public int getCount() {
-    return powers.size();
+    return relations.size();
   }
 
   @Override
   public Object getItem(int position) {
-    return powers.get(position);
+    return relations.get(position);
   }
 
   @Override
@@ -48,12 +45,10 @@ public class PowerAdapter extends BaseAdapter {
   @Override
   public View getView(int position, View convertView, ViewGroup parent) {
     View itemView = convertView;
-    itemView = (itemView == null) ? inflater.inflate(R.layout.list_power, null): itemView;
-    TextView textViewPowerName = (TextView) itemView.findViewById(R.id.textListPowerName);
-    TextView textViewPowerAPs = (TextView) itemView.findViewById(R.id.textListPowerAPs);
-    Power selectedPower = powers.get(position);
-    textViewPowerName.setText(selectedPower.getName());
-    textViewPowerAPs.setText("APs: " + selectedPower.getAPs());
+    itemView = (itemView == null) ? inflater.inflate(R.layout.list_relations, null): itemView;
+    TextView textViewRelation = (TextView) itemView.findViewById(R.id.textListRelationName);
+    String selectedRelation = relations.get(position);
+    textViewRelation.setText(selectedRelation);
     return itemView;
   }
 }

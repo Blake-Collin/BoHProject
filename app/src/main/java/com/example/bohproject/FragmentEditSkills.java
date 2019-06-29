@@ -11,20 +11,38 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
-import com.example.bohCharacter.DrawAdvantages;
-import com.example.bohCharacter.Skills;
+import com.example.ListAdapters.SkillAdapater;
+import com.example.bohCharacter.Skill;
 import java.util.ArrayList;
+
+/**
+ * FragmentEditSkills is the fragment view for out Tab layout of editing a character's
+ * Skills
+ *
+ * @author Collin Blake
+ * @since 6-29-2019
+ */
 
 public class FragmentEditSkills extends Fragment implements OnClickListener {
 
   static final String TAG = "FragmentEditSkills";
   View view;
   ArrayList<String> subSkills = new ArrayList<>();
+  private SkillAdapater skillAdapater;
 
   public FragmentEditSkills() {
   }
 
+  /**
+   * onCreateView to add our button listeners
+   *
+   * @param inflater
+   * @param container
+   * @param savedInstanceState
+   * @return
+   */
   @Nullable
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -69,20 +87,22 @@ public class FragmentEditSkills extends Fragment implements OnClickListener {
     int num = Integer.parseInt(editTextAPS.getText().toString());
 
 
-    Log.i(TAG,"Skill Name: " + name + " at " + num + "\n" + "Subskills: " + this.subSkills);
+    if(name != "" && num > -1) {
+      Log.i(TAG, "Skill Name: " + name + " at " + num + "\n" + "Subskills: " + this.subSkills);
 
-    //Get character here and add the new Skills item.
-    ((EditActivity) getActivity()).character.getSkills().add(new Skills(name, num, subSkills));
-    Log.i(TAG, "Skill Added");
+      //Get character here and add the new Skill item.
+      ((EditActivity) getActivity()).character.getSkills().add(new Skill(name, num, subSkills));
+      Log.i(TAG, "Skill Added");
 
-    //reset Inputs
-    Log.i(TAG, "Reset Inputs");
-    editTextSkillName.setText("");
-    editTextAPS.setText("1");
-    this.subSkills.clear();
+      //reset Inputs
+      Log.i(TAG, "Reset Inputs");
+      editTextSkillName.setText("");
+      editTextAPS.setText("1");
+      this.subSkills = new ArrayList<>();
 
-    //Update Skill List
-    updateSkillList();
+      //Update Skill List
+      updateSkillList();
+    }
   }
 
   public void onAddSubSkill() {
@@ -104,7 +124,10 @@ public class FragmentEditSkills extends Fragment implements OnClickListener {
 
   //Update Skill List
   public void updateSkillList() {
-    Log.i(TAG, "Skills List Updating");
+    Log.i(TAG, "Skill List Updating");
+    skillAdapater = new SkillAdapater((EditActivity) getActivity(), ((EditActivity) getActivity()).character.getSkills());
+    ListView listSkills = (ListView) view.findViewById(R.id.listViewSkills);
+    listSkills.setAdapter(skillAdapater);
   }
 
 }

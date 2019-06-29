@@ -4,6 +4,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+/**
+ * Edit Pager adapter for edit activity
+ *
+ * @author Collin Blake
+ * @since 6-29-2019
+ */
 public class EditPagerAdapter extends FragmentStatePagerAdapter {
 
   int countTab;

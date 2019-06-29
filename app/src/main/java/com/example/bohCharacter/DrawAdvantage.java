@@ -1,11 +1,17 @@
 package com.example.bohCharacter;
 
-public class DrawAdvantages {
+/**
+ * Character Advantage & Drawback object type
+ *
+ * @auithor Collin Blake
+ * @since 6-29-2019
+ */
+public class DrawAdvantage {
 
   private String name;
   private String description;
 
-  public DrawAdvantages(String name, String description) {
+  public DrawAdvantage(String name, String description) {
     this.name = name;
     this.description = description;
   }

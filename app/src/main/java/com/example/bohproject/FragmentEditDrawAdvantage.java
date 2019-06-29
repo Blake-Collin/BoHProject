@@ -11,12 +11,22 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import com.example.bohCharacter.DrawAdvantages;
+import android.widget.ListView;
+import com.example.ListAdapters.DrawAdvanAdapter;
+import com.example.bohCharacter.DrawAdvantage;
 
+/**
+ * FragmentEditDrawAdvantage is the fragment view for out Tab layout of editing a character's
+ * drawbacks & advantages
+ *
+ * @author Collin Blake
+ * @since 6-29-2019
+ */
 public class FragmentEditDrawAdvantage extends Fragment implements OnClickListener {
 
   static final String TAG = "FragmentEditDrawAdvant";
   View view;
+  DrawAdvanAdapter drawAdvanAdapter;
 
   public FragmentEditDrawAdvantage() {
   }
@@ -66,7 +76,7 @@ public class FragmentEditDrawAdvantage extends Fragment implements OnClickListen
     Log.i(TAG,"Drawback/Advantage: " + name + "\n" + "Description: " + desc);
 
     //Get character here and add the new Drawback or advantage item.
-    ((EditActivity) getActivity()).character.getDrawAdvantages().add(new DrawAdvantages(name,desc));
+    ((EditActivity) getActivity()).character.getDrawAdvantages().add(new DrawAdvantage(name,desc));
 
     Log.i(TAG, "Draw/Advantage Added to the list");
 
@@ -82,7 +92,9 @@ public class FragmentEditDrawAdvantage extends Fragment implements OnClickListen
   public void updateDrawAdvanList() {
     //Add code for updating later
     Log.i(TAG, "Updating the Draw & Advantages List");
-
+    drawAdvanAdapter = new DrawAdvanAdapter((EditActivity) getActivity(), ((EditActivity) getActivity()).character.getDrawAdvantages());
+    ListView listDrawAdvans = (ListView) view.findViewById(R.id.listViewDrawAdvan);
+    listDrawAdvans.setAdapter(drawAdvanAdapter);
   }
 
 }

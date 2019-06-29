@@ -7,37 +7,36 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.example.bohCharacter.Power;
+import com.example.bohCharacter.Skill;
 import com.example.bohproject.R;
 import java.util.ArrayList;
 
-
 /**
- * power Custom list Adapter for displaying purposes.
+ * skill Custom list Adapter for displaying purposes.
  *
  * @author Collin Blake
  * @since 6-29-2019
  */
+public class SkillAdapater extends BaseAdapter {
 
-public class PowerAdapter extends BaseAdapter {
   Activity context;
-  ArrayList<Power> powers;
+  ArrayList<Skill> skills;
   private static LayoutInflater inflater = null;
 
-  public PowerAdapter( Activity context, ArrayList<Power> powers) {
-    this.context  = context;
-    this.powers = powers;
+  public SkillAdapater(Activity context, ArrayList<Skill> skills) {
+    this.context = context;
+    this.skills = skills;
     inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
   }
 
   @Override
   public int getCount() {
-    return powers.size();
+    return skills.size();
   }
 
   @Override
   public Object getItem(int position) {
-    return powers.get(position);
+    return skills.get(position);
   }
 
   @Override
@@ -48,12 +47,13 @@ public class PowerAdapter extends BaseAdapter {
   @Override
   public View getView(int position, View convertView, ViewGroup parent) {
     View itemView = convertView;
-    itemView = (itemView == null) ? inflater.inflate(R.layout.list_power, null): itemView;
-    TextView textViewPowerName = (TextView) itemView.findViewById(R.id.textListPowerName);
-    TextView textViewPowerAPs = (TextView) itemView.findViewById(R.id.textListPowerAPs);
-    Power selectedPower = powers.get(position);
-    textViewPowerName.setText(selectedPower.getName());
-    textViewPowerAPs.setText("APs: " + selectedPower.getAPs());
+    itemView = (itemView == null) ? inflater.inflate(R.layout.list_skills, null) : itemView;
+    TextView textViewPowerName = (TextView) itemView.findViewById(R.id.textListSkillName);
+    TextView textViewPowerAPs = (TextView) itemView.findViewById(R.id.textListDrawSkillDescAP);
+    Skill selectedSkill = skills.get(position);
+    textViewPowerName.setText(selectedSkill.getName());
+    textViewPowerAPs
+        .setText("APs: " + selectedSkill.getAPs() + " Subs: " + selectedSkill.getSubskills());
     return itemView;
   }
 }

@@ -1,5 +1,10 @@
 package com.example.bohCharacter;
-
+/**
+ * Character attributes object type
+ *
+ * @auithor Collin Blake
+ * @since 6-29-2019
+ */
 public class Attributes {
 
   private int str;

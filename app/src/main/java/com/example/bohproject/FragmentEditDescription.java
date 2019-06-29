@@ -6,16 +6,29 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnFocusChangeListener;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
+import com.example.ListAdapters.KnownRelationsAdapter;
+import com.example.ListAdapters.PowerAdapter;
 
+
+/**
+ * FragmentEditDescription for editing our character's description values
+ *
+ * @author Collin Blake
+ * @since 6-29-2019
+ */
 public class FragmentEditDescription extends Fragment implements OnClickListener {
 
   static final String TAG = "FragmentEditDescription";
+  KnownRelationsAdapter knownRelationsAdapter;
   View view;
 
   public FragmentEditDescription() {
@@ -293,6 +306,32 @@ public class FragmentEditDescription extends Fragment implements OnClickListener
     });
 
 
+    //KnownRelations Fix
+    ListView lv = (ListView)view.findViewById(R.id.listViewKnownRelatives);  // your listview inside scrollview
+    lv.setOnTouchListener(new ListView.OnTouchListener() {
+      @Override
+      public boolean onTouch(View v, MotionEvent event) {
+        int action = event.getAction();
+        switch (action) {
+          case MotionEvent.ACTION_DOWN:
+            // Disallow ScrollView to intercept touch events.
+            v.getParent().requestDisallowInterceptTouchEvent(true);
+            break;
+
+          case MotionEvent.ACTION_UP:
+            // Allow ScrollView to intercept touch events.
+            v.getParent().requestDisallowInterceptTouchEvent(false);
+            break;
+        }
+
+        // Handle ListView touch events.
+        v.onTouchEvent(event);
+        return true;
+      }
+
+    });
+
+
     //Update relations List
     updateRelationsList();
 
@@ -334,6 +373,17 @@ public class FragmentEditDescription extends Fragment implements OnClickListener
   public void updateRelationsList() {
     //Update List
     Log.i(TAG, "Update Relations List");
+    knownRelationsAdapter = new KnownRelationsAdapter((EditActivity) getActivity(), ((EditActivity) getActivity()).character.getDescription().getKnownRelatives());
+    ListView listRelations = (ListView) view.findViewById(R.id.listViewKnownRelatives);
+    listRelations.setAdapter(knownRelationsAdapter);
+
+/*    Log.i(TAG, "Fixing ListView Height");
+    int totalHeight = 18 * knownRelationsAdapter.getCount();
+
+    ViewGroup.LayoutParams params = listRelations.getLayoutParams();
+    params.height = totalHeight + listRelations.getDividerHeight() * (knownRelationsAdapter.getCount()-1);
+    listRelations.setLayoutParams(params);
+    listRelations.requestLayout();*/
 
   }
 

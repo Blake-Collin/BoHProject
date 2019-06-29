@@ -1,6 +1,5 @@
 package com.example.bohproject;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,10 +14,15 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 import com.example.bohCharacter.Character;
 import com.google.gson.Gson;
 
+/**
+ * our Edit Activity using Tab layout for editing our chracter
+ *
+ * @author Collin Blake
+ * @since 6-29-2019
+ */
 public class EditActivity extends AppCompatActivity {
 
   static final String TAG = "EditActivity";
@@ -94,6 +98,12 @@ public class EditActivity extends AppCompatActivity {
     super.setSupportActionBar(toolbar);
   }
 
+  /**
+   * Callout to our menu functions
+   *
+   * @param item
+   * @return
+   */
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
     // Handle item selection
