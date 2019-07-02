@@ -1,6 +1,5 @@
 package com.example.bohdatabase;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -10,18 +9,27 @@ import android.util.Log;
 import com.example.bohCharacter.Character;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import java.io.IOException;
 import java.util.HashMap;
 
+/**
+ * Database access for our local shared preferences of saved {@link com.example.bohCharacter.Character}s
+ * This also handles deletion, update, and creation of this. (Built as a singleton instance to avoid
+ * multiple edits at once)
+ *
+ * @author Collin Blake
+ * @Since 6-29-2019
+ */
 public class DataBaseAccess {
 
   static final String TAG = "DataBaseAccess";
   private static final String MAPNAME = "bohCharacterMap";
   private static HashMap<String, Character> characterHashMap = null;
 
-  private DataBaseAccess() {}
+  private DataBaseAccess() {
+  }
 
   private static class DataBaseAccessSingleton {
+
     private static final DataBaseAccess INSTANCE = new DataBaseAccess();
   }
 
@@ -30,16 +38,15 @@ public class DataBaseAccess {
   }
 
   @RequiresApi(api = VERSION_CODES.N)
-  public static void updateCharacter(String name, Character character, Context context) throws Exception {
+  public static void updateCharacter(String name, Character character, Context context)
+      throws Exception {
     //Pull in map
     HashMap<String, Character> map = getMap(context);
     Log.i(TAG, "Character Update in Progress");
-    if(name != character.getDescription().getName())
-    {
+    if (name != character.getDescription().getName()) {
       map.remove(name);
       map.put(character.getDescription().getName(), character);
-    }
-    else {
+    } else {
       map.replace(name, character);
     }
   }
@@ -49,8 +56,7 @@ public class DataBaseAccess {
     Log.i(TAG, "Character Deletion in Progress");
     HashMap<String, Character> map = getMap(context);
 
-    if(!map.containsKey(character.getDescription().getName()))
-    {
+    if (!map.containsKey(character.getDescription().getName())) {
       Log.e(TAG, "Character Doesn't Exist");
       Exception e = new CharacterNonExistenceException();
       throw e;
@@ -63,14 +69,13 @@ public class DataBaseAccess {
   public static void createCharacter(Character character, Context context) throws Exception {
     HashMap<String, Character> map = getMap(context);
 
-    if(map == null) {
+    if (map == null) {
       Log.i(TAG, "No Map Yet Creating our first Hashmap!");
       map = new HashMap<String, Character>();
     }
 
     Log.i(TAG, "Character Creation in Progress");
-    if(map.containsKey(character.getDescription().getName()))
-    {
+    if (map.containsKey(character.getDescription().getName())) {
       Log.e(TAG, "Character Already Exists");
       Exception e = new CharacterExistsException();
       throw e;
@@ -93,12 +98,14 @@ public class DataBaseAccess {
   private static HashMap<String, Character> getMap(Context context) {
     //Create our Pref to pull from
     Log.i(TAG, "Retrieving Map");
-    SharedPreferences pref =  context.getSharedPreferences(MAPNAME, 0);
+    SharedPreferences pref = context.getSharedPreferences(MAPNAME, 0);
 
     //Serialize and save our class
     String temp = pref.getString(MAPNAME, null);
     Gson gson = new Gson();
-    HashMap<String, Character> map = gson.fromJson(temp, new TypeToken<HashMap<String, Character>>(){}.getType());
+    HashMap<String, Character> map = gson
+        .fromJson(temp, new TypeToken<HashMap<String, Character>>() {
+        }.getType());
 
     //Return our map
     return map;

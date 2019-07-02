@@ -3,7 +3,7 @@ package com.example.bohCharacter;
 import java.util.ArrayList;
 
 /**
- * Character description object
+ * {@link com.example.bohCharacter.Character} description object
  *
  * @auithor Collin Blake
  * @since 6-29-2019

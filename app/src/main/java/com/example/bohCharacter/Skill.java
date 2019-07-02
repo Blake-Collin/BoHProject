@@ -3,7 +3,7 @@ package com.example.bohCharacter;
 import java.util.ArrayList;
 
 /**
- * Character skill object type
+ * {@link com.example.bohCharacter.Character} skill object type
  *
  * @auithor Collin Blake
  * @since 6-29-2019

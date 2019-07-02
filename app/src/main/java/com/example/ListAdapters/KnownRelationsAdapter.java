@@ -11,18 +11,21 @@ import com.example.bohproject.R;
 import java.util.ArrayList;
 
 /**
- * relations Custom list Adapter for displaying purposes.
+ * {@link com.example.bohCharacter.Description}'s relations Custom list Adapter for displaying
+ * purposes on both {@link com.example.bohproject.FragmentViewDescription} & {@link
+ * com.example.bohproject.FragmentEditDescription}
  *
  * @author Collin Blake
  * @since 6-29-2019
  */
 public class KnownRelationsAdapter extends BaseAdapter {
+
   Activity context;
   ArrayList<String> relations;
   private static LayoutInflater inflater = null;
 
-  public KnownRelationsAdapter( Activity context, ArrayList<String> relations) {
-    this.context  = context;
+  public KnownRelationsAdapter(Activity context, ArrayList<String> relations) {
+    this.context = context;
     this.relations = relations;
     inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
   }
@@ -45,7 +48,7 @@ public class KnownRelationsAdapter extends BaseAdapter {
   @Override
   public View getView(int position, View convertView, ViewGroup parent) {
     View itemView = convertView;
-    itemView = (itemView == null) ? inflater.inflate(R.layout.list_relations, null): itemView;
+    itemView = (itemView == null) ? inflater.inflate(R.layout.list_relations, null) : itemView;
     TextView textViewRelation = (TextView) itemView.findViewById(R.id.textListRelationName);
     String selectedRelation = relations.get(position);
     textViewRelation.setText(selectedRelation);

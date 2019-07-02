@@ -7,7 +7,17 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.example.bohCharacter.DrawAdvantage;
 
+/**
+ * FragmentViewDrawAdvantage is the fragment view for out Tab layout of viewing a {@link
+ * com.example.bohCharacter.Character}'s {@link DrawAdvantage} list
+ *
+ * Part of the {@link ViewActivity}
+ *
+ * @author Collin Blake
+ * @since 6-29-2019
+ */
 public class FragmentViewDrawAdvantage extends Fragment {
 
   View view;

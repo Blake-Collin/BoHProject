@@ -20,7 +20,10 @@ import com.example.ListAdapters.KnownRelationsAdapter;
 
 
 /**
- * FragmentEditDescription for editing our character's description values
+ * FragmentEditDescription for editing our {@link com.example.bohCharacter.Character}'s {@link
+ * com.example.bohCharacter.Description} values
+ *
+ * Part of the {@link EditActivity}
  *
  * @author Collin Blake
  * @since 6-29-2019
@@ -34,6 +37,11 @@ public class FragmentEditDescription extends Fragment implements OnClickListener
   public FragmentEditDescription() {
   }
 
+  /**
+   * onCreateView will add all our listeners that will update the {@link
+   * com.example.bohCharacter.Character} class in real-time every time you enter a value for editing
+   * our {@link com.example.bohCharacter.Description}.
+   */
   @Nullable
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -305,9 +313,8 @@ public class FragmentEditDescription extends Fragment implements OnClickListener
       }
     });
 
-
     //KnownRelations Fix
-    ListView lv = (ListView)view.findViewById(R.id.listViewKnownRelatives);
+    ListView lv = (ListView) view.findViewById(R.id.listViewKnownRelatives);
     lv.setOnTouchListener(new ListView.OnTouchListener() {
       @Override
       public boolean onTouch(View v, MotionEvent event) {
@@ -335,15 +342,16 @@ public class FragmentEditDescription extends Fragment implements OnClickListener
 
       @Override
       public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-        Log.i(TAG, "Delete: " + ((EditActivity) getActivity()).character.getDescription().getKnownRelatives().get(position));
-        ((EditActivity) getActivity()).character.getDescription().getKnownRelatives().remove(position);
+        Log.i(TAG, "Delete: " + ((EditActivity) getActivity()).character.getDescription()
+            .getKnownRelatives().get(position));
+        ((EditActivity) getActivity()).character.getDescription().getKnownRelatives()
+            .remove(position);
 
         //Update after deletion
         updateRelationsList();
         return false;
       }
     });
-
 
     //Update relations List
     updateRelationsList();
@@ -371,7 +379,7 @@ public class FragmentEditDescription extends Fragment implements OnClickListener
     //Assign Values
     String name = editTextRelative.getText().toString();
 
-    Log.i(TAG,"Relative: " + name + " Added");
+    Log.i(TAG, "Relative: " + name + " Added");
 
     //Get character here and add the new Relative.
     ((EditActivity) getActivity()).character.getDescription().getKnownRelatives().add(name);
@@ -386,7 +394,8 @@ public class FragmentEditDescription extends Fragment implements OnClickListener
   public void updateRelationsList() {
     //Update List
     Log.i(TAG, "Update Relations List");
-    knownRelationsAdapter = new KnownRelationsAdapter((EditActivity) getActivity(), ((EditActivity) getActivity()).character.getDescription().getKnownRelatives());
+    knownRelationsAdapter = new KnownRelationsAdapter((EditActivity) getActivity(),
+        ((EditActivity) getActivity()).character.getDescription().getKnownRelatives());
     ListView listRelations = (ListView) view.findViewById(R.id.listViewKnownRelatives);
     listRelations.setAdapter(knownRelationsAdapter);
 

@@ -1,18 +1,11 @@
 package com.example.bohproject;
 
-import android.content.Context;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import com.example.bohproject.R;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * View Pager adapter for view activity
+ * View Pager adapter for {@link ViewActivity}
  *
  * @author Collin Blake
  * @since 6-29-2019

@@ -1,7 +1,7 @@
 package com.example.bohCharacter;
 
 /**
- * Character Advantage & Drawback object type
+ * {@link com.example.bohCharacter.Character} Advantage & Drawback object type
  *
  * @auithor Collin Blake
  * @since 6-29-2019

@@ -13,7 +13,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import com.example.bohCharacter.Character;
 
+
+/**
+ * our ViewActivity using Tab layout for viewing our {@link Character}
+ *
+ * @author Collin Blake
+ * @since 6-29-2019
+ */
 public class ViewActivity extends AppCompatActivity {
 
 

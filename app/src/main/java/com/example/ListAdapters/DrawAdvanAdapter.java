@@ -12,13 +12,15 @@ import com.example.bohproject.R;
 import java.util.ArrayList;
 
 /**
- * DrawAdvantage Custom list Adapter for displaying purposes.
+ * {@link DrawAdvantage} Custom list Adapter for displaying purposes on both {@link
+ * com.example.bohproject.FragmentViewDrawAdvantage} & {@link com.example.bohproject.FragmentEditDrawAdvantage}
  *
  * @author Collin Blake
  * @since 6-29-2019
  */
 
 public class DrawAdvanAdapter extends BaseAdapter {
+
   Activity context;
   ArrayList<DrawAdvantage> drawAdvantages;
   private static LayoutInflater inflater = null;

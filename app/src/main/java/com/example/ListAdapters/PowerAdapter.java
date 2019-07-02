@@ -13,19 +13,21 @@ import java.util.ArrayList;
 
 
 /**
- * power Custom list Adapter for displaying purposes.
+ * {@link Power} Custom list Adapter for displaying purposes on both {@link
+ * com.example.bohproject.FragmentEditPowers} & {@link com.example.bohproject.FragmentViewPowers}.
  *
  * @author Collin Blake
  * @since 6-29-2019
  */
 
 public class PowerAdapter extends BaseAdapter {
+
   Activity context;
   ArrayList<Power> powers;
   private static LayoutInflater inflater = null;
 
-  public PowerAdapter( Activity context, ArrayList<Power> powers) {
-    this.context  = context;
+  public PowerAdapter(Activity context, ArrayList<Power> powers) {
+    this.context = context;
     this.powers = powers;
     inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
   }
@@ -48,7 +50,7 @@ public class PowerAdapter extends BaseAdapter {
   @Override
   public View getView(int position, View convertView, ViewGroup parent) {
     View itemView = convertView;
-    itemView = (itemView == null) ? inflater.inflate(R.layout.list_power, null): itemView;
+    itemView = (itemView == null) ? inflater.inflate(R.layout.list_power, null) : itemView;
     TextView textViewPowerName = (TextView) itemView.findViewById(R.id.textListPowerName);
     TextView textViewPowerAPs = (TextView) itemView.findViewById(R.id.textListPowerAPs);
     Power selectedPower = powers.get(position);

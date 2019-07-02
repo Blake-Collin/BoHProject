@@ -1,6 +1,6 @@
 package com.example.bohCharacter;
 /**
- * Character attributes object type
+ * {@link com.example.bohCharacter.Character} attributes object type
  *
  * @auithor Collin Blake
  * @since 6-29-2019

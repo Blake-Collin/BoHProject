@@ -12,7 +12,8 @@ import com.example.bohproject.R;
 import java.util.ArrayList;
 
 /**
- * skill Custom list Adapter for displaying purposes.
+ * {@link Skill} Custom list Adapter for displaying purposes on both {@link
+ * com.example.bohproject.FragmentViewSkills} & {@link com.example.bohproject.FragmentEditSkills}
  *
  * @author Collin Blake
  * @since 6-29-2019
@@ -23,6 +24,11 @@ public class SkillAdapater extends BaseAdapter {
   ArrayList<Skill> skills;
   private static LayoutInflater inflater = null;
 
+  /**
+   *
+   * @param context
+   * @param skills
+   */
   public SkillAdapater(Activity context, ArrayList<Skill> skills) {
     this.context = context;
     this.skills = skills;

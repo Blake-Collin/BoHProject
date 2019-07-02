@@ -13,7 +13,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 /**
- * FragmentEdit Attributes will allow you to edit a character's attributes
+ * FragmentEdit {@link com.example.bohCharacter.Attributes} will allow you to edit a {@link
+ * com.example.bohCharacter.Character}'s {@link com.example.bohCharacter.Attributes}
+ *
+ * Part of the {@link EditActivity}
  *
  * @Author Collin Blake
  * @since 6-29-2019
@@ -27,14 +30,9 @@ public class FragmentEditAttributes extends Fragment {
   }
 
   /**
-   * onCreateView will create our metric ton of listeners which save the value once focus is lost
-   * it worked better and caused less function calling instead of doing on change which caused a bunch
+   * onCreateView will create our metric ton of listeners which save the value once focus is lost it
+   * worked better and caused less function calling instead of doing on change which caused a bunch
    * of issues
-   *
-   * @param inflater
-   * @param container
-   * @param savedInstanceState
-   * @return
    */
   @Nullable
   @Override
@@ -49,36 +47,46 @@ public class FragmentEditAttributes extends Fragment {
     //Physical
     Log.i(TAG, "Assigning Physical Values");
     TextView textView = view.findViewById(R.id.textStrValue);
-    textView.setText(Integer.toString(((EditActivity) getActivity()).character.getAttributes().getStr()));
+    textView.setText(
+        Integer.toString(((EditActivity) getActivity()).character.getAttributes().getStr()));
     textView = view.findViewById(R.id.textDexValue);
-    textView.setText(Integer.toString(((EditActivity) getActivity()).character.getAttributes().getDex()));
+    textView.setText(
+        Integer.toString(((EditActivity) getActivity()).character.getAttributes().getDex()));
     textView = view.findViewById(R.id.textBodyValue);
-    textView.setText(Integer.toString(((EditActivity) getActivity()).character.getAttributes().getBody()));
+    textView.setText(
+        Integer.toString(((EditActivity) getActivity()).character.getAttributes().getBody()));
 
     //Mental
     Log.i(TAG, "Assigning Mental Values");
     textView = view.findViewById(R.id.textIntValue);
-    textView.setText(Integer.toString(((EditActivity) getActivity()).character.getAttributes().getInt()));
+    textView.setText(
+        Integer.toString(((EditActivity) getActivity()).character.getAttributes().getInt()));
     textView = view.findViewById(R.id.textWillValue);
-    textView.setText(Integer.toString(((EditActivity) getActivity()).character.getAttributes().getWill()));
+    textView.setText(
+        Integer.toString(((EditActivity) getActivity()).character.getAttributes().getWill()));
     textView = view.findViewById(R.id.textMindValue);
-    textView.setText(Integer.toString(((EditActivity) getActivity()).character.getAttributes().getMind()));
+    textView.setText(
+        Integer.toString(((EditActivity) getActivity()).character.getAttributes().getMind()));
 
     //Spiritual
     Log.i(TAG, "Assigning Spiritual Values");
     textView = view.findViewById(R.id.textInflValue);
-    textView.setText(Integer.toString(((EditActivity) getActivity()).character.getAttributes().getInfl()));
+    textView.setText(
+        Integer.toString(((EditActivity) getActivity()).character.getAttributes().getInfl()));
     textView = view.findViewById(R.id.textAuraValue);
-    textView.setText(Integer.toString(((EditActivity) getActivity()).character.getAttributes().getAura()));
+    textView.setText(
+        Integer.toString(((EditActivity) getActivity()).character.getAttributes().getAura()));
     textView = view.findViewById(R.id.textSpiritValue);
-    textView.setText(Integer.toString(((EditActivity) getActivity()).character.getAttributes().getSpirit()));
+    textView.setText(
+        Integer.toString(((EditActivity) getActivity()).character.getAttributes().getSpirit()));
 
     //Wealth & HeroPoints
     textView = view.findViewById(R.id.textWealthValue);
-    textView.setText(Integer.toString(((EditActivity) getActivity()).character.getAttributes().getWealth()));
+    textView.setText(
+        Integer.toString(((EditActivity) getActivity()).character.getAttributes().getWealth()));
     textView = view.findViewById(R.id.textHeroPointsValue);
-    textView.setText(Integer.toString(((EditActivity) getActivity()).character.getAttributes().getHeroPoints()));
-
+    textView.setText(
+        Integer.toString(((EditActivity) getActivity()).character.getAttributes().getHeroPoints()));
 
     //addTextChangedListeners
 
@@ -87,7 +95,6 @@ public class FragmentEditAttributes extends Fragment {
     editTextTemp.setOnFocusChangeListener(new OnFocusChangeListener() {
 
       public void onFocusChange(View v, boolean hasFocus) {
-
 
         if (hasFocus) {
           // If view having focus.
@@ -108,7 +115,6 @@ public class FragmentEditAttributes extends Fragment {
 
       public void onFocusChange(View v, boolean hasFocus) {
 
-
         if (hasFocus) {
           // If view having focus.
         } else {
@@ -127,7 +133,6 @@ public class FragmentEditAttributes extends Fragment {
     editTextTemp.setOnFocusChangeListener(new OnFocusChangeListener() {
 
       public void onFocusChange(View v, boolean hasFocus) {
-
 
         if (hasFocus) {
           // If view having focus.
@@ -148,7 +153,6 @@ public class FragmentEditAttributes extends Fragment {
 
       public void onFocusChange(View v, boolean hasFocus) {
 
-
         if (hasFocus) {
           // If view having focus.
         } else {
@@ -167,7 +171,6 @@ public class FragmentEditAttributes extends Fragment {
     editTextTemp.setOnFocusChangeListener(new OnFocusChangeListener() {
 
       public void onFocusChange(View v, boolean hasFocus) {
-
 
         if (hasFocus) {
           // If view having focus.
@@ -188,7 +191,6 @@ public class FragmentEditAttributes extends Fragment {
 
       public void onFocusChange(View v, boolean hasFocus) {
 
-
         if (hasFocus) {
           // If view having focus.
         } else {
@@ -207,7 +209,6 @@ public class FragmentEditAttributes extends Fragment {
     editTextTemp.setOnFocusChangeListener(new OnFocusChangeListener() {
 
       public void onFocusChange(View v, boolean hasFocus) {
-
 
         if (hasFocus) {
           // If view having focus.
@@ -228,7 +229,6 @@ public class FragmentEditAttributes extends Fragment {
 
       public void onFocusChange(View v, boolean hasFocus) {
 
-
         if (hasFocus) {
           // If view having focus.
         } else {
@@ -247,7 +247,6 @@ public class FragmentEditAttributes extends Fragment {
     editTextTemp.setOnFocusChangeListener(new OnFocusChangeListener() {
 
       public void onFocusChange(View v, boolean hasFocus) {
-
 
         if (hasFocus) {
           // If view having focus.
@@ -268,7 +267,6 @@ public class FragmentEditAttributes extends Fragment {
 
       public void onFocusChange(View v, boolean hasFocus) {
 
-
         if (hasFocus) {
           // If view having focus.
         } else {
@@ -286,7 +284,6 @@ public class FragmentEditAttributes extends Fragment {
     editTextTemp.setOnFocusChangeListener(new OnFocusChangeListener() {
 
       public void onFocusChange(View v, boolean hasFocus) {
-
 
         if (hasFocus) {
           // If view having focus.

@@ -5,7 +5,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 /**
- * Edit Pager adapter for edit activity
+ * Edit Page adapter for {@link EditActivity}
+ *
+ * Mainly for the {@link EditActivity}
  *
  * @author Collin Blake
  * @since 6-29-2019

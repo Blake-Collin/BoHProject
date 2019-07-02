@@ -20,8 +20,10 @@ import com.example.bohCharacter.Skill;
 import java.util.ArrayList;
 
 /**
- * FragmentEditSkills is the fragment view for out Tab layout of editing a character's
- * Skills
+ * FragmentEditSkills is the fragment view for out Tab layout of editing a {@link
+ * com.example.bohCharacter.Character}'s {@link Skill}s.
+ *
+ * Part of the {@link EditActivity}
  *
  * @author Collin Blake
  * @since 6-29-2019
@@ -39,17 +41,12 @@ public class FragmentEditSkills extends Fragment implements OnClickListener {
 
   /**
    * onCreateView to add our button listeners
-   *
-   * @param inflater
-   * @param container
-   * @param savedInstanceState
-   * @return
    */
   @Nullable
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
-    view = inflater.inflate(R.layout.edit_skills_fragment,container,false);
+    view = inflater.inflate(R.layout.edit_skills_fragment, container, false);
 
     //Button listener Setups
     Button b = (Button) view.findViewById(R.id.buttonAddSkill);
@@ -60,13 +57,14 @@ public class FragmentEditSkills extends Fragment implements OnClickListener {
     Log.i(TAG, "Added Button Listeners");
 
     //Adding long click deletion
-    ListView lv = (ListView)view.findViewById(R.id.listViewSkills);
+    ListView lv = (ListView) view.findViewById(R.id.listViewSkills);
     lv.setOnItemLongClickListener(new OnItemLongClickListener() {
 
       @Override
       public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 
-        Log.i(TAG, "Delete: " + ((EditActivity) getActivity()).character.getSkills().get(position).toString());
+        Log.i(TAG, "Delete: " + ((EditActivity) getActivity()).character.getSkills().get(position)
+            .toString());
         ((EditActivity) getActivity()).character.getSkills().remove(position);
 
         //Update after deletion
@@ -104,8 +102,7 @@ public class FragmentEditSkills extends Fragment implements OnClickListener {
     String name = editTextSkillName.getText().toString();
     int num = Integer.parseInt(editTextAPS.getText().toString());
 
-
-    if(name != "" && num > -1) {
+    if (name != "" && num > -1) {
       Log.i(TAG, "Skill Name: " + name + " at " + num + "\n" + "Subskills: " + this.subSkills);
 
       //Get character here and add the new Skill item.
@@ -143,7 +140,8 @@ public class FragmentEditSkills extends Fragment implements OnClickListener {
   //Update Skill List
   public void updateSkillList() {
     Log.i(TAG, "Skill List Updating");
-    skillAdapater = new SkillAdapater((EditActivity) getActivity(), ((EditActivity) getActivity()).character.getSkills());
+    skillAdapater = new SkillAdapater((EditActivity) getActivity(),
+        ((EditActivity) getActivity()).character.getSkills());
     ListView listSkills = (ListView) view.findViewById(R.id.listViewSkills);
     listSkills.setAdapter(skillAdapater);
   }

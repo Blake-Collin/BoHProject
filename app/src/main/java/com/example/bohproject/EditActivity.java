@@ -15,10 +15,11 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import com.example.bohCharacter.Character;
+import com.example.bohdatabase.DataBaseAccess;
 import com.google.gson.Gson;
 
 /**
- * our Edit Activity using Tab layout for editing our chracter
+ * our Edit Activity using Tab layout for editing our {@link Character}
  *
  * @author Collin Blake
  * @since 6-29-2019
@@ -29,6 +30,10 @@ public class EditActivity extends AppCompatActivity {
   protected Character character;
   protected String name;
 
+  /**
+   * Requires an intent passed with json object of {@link Character} labeled at the hashmap
+   * "character" Will also add our
+   */
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -85,7 +90,7 @@ public class EditActivity extends AppCompatActivity {
   }
 
   /**
-   * Creates our basic menu choices
+   * Creates our basic toolbar inflation for when you press the menu
    */
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
@@ -99,10 +104,9 @@ public class EditActivity extends AppCompatActivity {
   }
 
   /**
-   * Callout to our menu functions
+   * Callout to our menu functions which will save, return to home,
    *
-   * @param item
-   * @return
+   * @return completion case
    */
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
@@ -114,7 +118,7 @@ public class EditActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(EditActivity.this);
         builder.setCancelable(true);
         builder.setTitle("Return to Main Menu");
-        builder.setMessage("Changes will nto be saved, are you sure?");
+        builder.setMessage("Changes will not be saved, are you sure?");
         builder.setPositiveButton("Confirm",
             new DialogInterface.OnClickListener() {
               @Override
@@ -139,8 +143,7 @@ public class EditActivity extends AppCompatActivity {
       case (R.id.save):
         System.out.println("Save has been pushed");
         //Save Character to our Database
-
-
+        DataBaseAccess dataBaseAccess = DataBaseAccess.getInstance();
 
         //To the View Activity
         intent = new Intent(this, ViewActivity.class);
@@ -164,8 +167,7 @@ public class EditActivity extends AppCompatActivity {
                 System.out.println("Confirmed!");
                 //ADd Character Delete here
 
-
-                Intent intent = new Intent( EditActivity.this ,MainActivity.class);
+                Intent intent = new Intent(EditActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
               }

@@ -7,7 +7,17 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.example.bohCharacter.Skill;
 
+/**
+ * FragmentEditSkills is the fragment view for out Tab layout of editing a {@link
+ * com.example.bohCharacter.Character}'s {@link Skill}s.
+ *
+ * Part of the {@link ViewActivity}
+ *
+ * @author Collin Blake
+ * @since 6-29-2019
+ */
 public class FragmentViewSkills extends Fragment {
 
   View view;

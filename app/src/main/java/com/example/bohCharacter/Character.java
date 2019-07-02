@@ -2,6 +2,13 @@ package com.example.bohCharacter;
 
 import java.util.ArrayList;
 
+/**
+ * Basic Character Class Object containing {@link Attributes}, Arraylist of {@link Power}, Arraylist
+ * of {@link Skill}, ArrayList of {@link DrawAdvantage}, and {@link Description};
+ *
+ * @Author Collin Blake
+ * @since 6-29-2019
+ */
 public class Character {
 
   //Variables
@@ -17,16 +24,6 @@ public class Character {
     this.skills = new ArrayList<>();
     this.drawAdvantages = new ArrayList<>();
     this.description = new Description();
-  }
-
-  //Functions
-  public void addPower(String name, int APs){
-    Power newPower = new Power(name, APs);
-    powers.add(newPower);
-  }
-
-  public void removePower(Power power) {
-     this.powers.remove(power);
   }
 
   //Getters

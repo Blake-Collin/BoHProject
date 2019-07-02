@@ -8,6 +8,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+/**
+ * FragmentView {@link com.example.bohCharacter.Attributes} will allow you to view a {@link
+ * com.example.bohCharacter.Character}'s {@link com.example.bohCharacter.Attributes}
+ *
+ * Part of the {@link ViewActivity}
+ *
+ * @Author Collin Blake
+ * @since 6-29-2019
+ */
 public class FragmentViewAttributes extends Fragment {
 
   View view;

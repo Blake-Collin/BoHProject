@@ -8,6 +8,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+/**
+ * FragmentViewDescription for viewing our {@link com.example.bohCharacter.Character}'s {@link
+ * com.example.bohCharacter.Description} values
+ *
+ * Part of the {@link ViewActivity}
+ *
+ * @author Collin Blake
+ * @since 6-29-2019
+ */
 public class FragmentViewDescription extends Fragment {
 
   View view;
