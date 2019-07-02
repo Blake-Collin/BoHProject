@@ -106,7 +106,7 @@ public class EditActivity extends AppCompatActivity {
   /**
    * Callout to our menu functions which will save, return to home,
    *
-   * @return completion case
+   * @return completion Boolean
    */
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {

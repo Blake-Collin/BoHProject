@@ -398,15 +398,6 @@ public class FragmentEditDescription extends Fragment implements OnClickListener
         ((EditActivity) getActivity()).character.getDescription().getKnownRelatives());
     ListView listRelations = (ListView) view.findViewById(R.id.listViewKnownRelatives);
     listRelations.setAdapter(knownRelationsAdapter);
-
-/*    Log.i(TAG, "Fixing ListView Height");
-    int totalHeight = 18 * knownRelationsAdapter.getCount();
-
-    ViewGroup.LayoutParams params = listRelations.getLayoutParams();
-    params.height = totalHeight + listRelations.getDividerHeight() * (knownRelationsAdapter.getCount()-1);
-    listRelations.setLayoutParams(params);
-    listRelations.requestLayout();*/
-
   }
 
 
