@@ -25,16 +25,20 @@ public class DataBaseAccess {
   private static final String MAPNAME = "bohCharacterMap";
   private static HashMap<String, Character> characterHashMap = null;
 
+
+  private static final DataBaseAccess ourInstance = new DataBaseAccess();
+
+  public static DataBaseAccess getInstance() {
+    return ourInstance;
+  }
+
   private DataBaseAccess() {
   }
 
+
   private static class DataBaseAccessSingleton {
 
-    private static final DataBaseAccess INSTANCE = new DataBaseAccess();
-  }
-
-  public static DataBaseAccess getInstance() {
-    return DataBaseAccessSingleton.INSTANCE;
+    private static final com.example.bohdatabase.DataBaseAccess INSTANCE = new com.example.bohdatabase.DataBaseAccess();
   }
 
   @RequiresApi(api = VERSION_CODES.N)
@@ -51,18 +55,18 @@ public class DataBaseAccess {
     }
   }
 
-  public static void deleteCharacter(Character character, Context context) throws Exception {
+  public static void deleteCharacter(String name, Context context) throws Exception {
 
     Log.i(TAG, "Character Deletion in Progress");
     HashMap<String, Character> map = getMap(context);
 
-    if (!map.containsKey(character.getDescription().getName())) {
+    if (!map.containsKey(name)) {
       Log.e(TAG, "Character Doesn't Exist");
       Exception e = new CharacterNonExistenceException();
       throw e;
     }
 
-    map.remove(character.getDescription().getName());
+    map.remove(name);
     saveMap(map, context);
   }
 
@@ -87,7 +91,12 @@ public class DataBaseAccess {
   public static boolean containsCharacter(String name, Context context) {
     HashMap<String, Character> map = getMap(context);
     Log.i(TAG, "Checking if Character exists");
-    return map.containsKey(name);
+    if (map != null) {
+      return map.containsKey(name);
+    } else {
+      return false;
+    }
+
   }
 
   public static HashMap<String, Character> getHashMap(Context context) {

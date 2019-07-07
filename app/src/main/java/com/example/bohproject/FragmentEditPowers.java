@@ -28,13 +28,9 @@ import com.example.bohCharacter.Power;
  */
 public class FragmentEditPowers extends Fragment implements OnClickListener {
 
-  static final String TAG = "FragmentEditPowers";
+  private static final String TAG = "FragmentEditPowers";
   private PowerAdapter powerAdapter;
-  View view;
-
-  public FragmentEditPowers() {
-  }
-
+  private View view;
 
   /**
    * onCreateView to create both our button leistener and power list update function.
@@ -45,7 +41,7 @@ public class FragmentEditPowers extends Fragment implements OnClickListener {
       @Nullable Bundle savedInstanceState) {
     view = inflater.inflate(R.layout.edit_powers_fragment, container, false);
 
-    Button b = (Button) view.findViewById(R.id.buttonPowerAdd);
+    Button b = view.findViewById(R.id.buttonPowerAdd);
     b.setOnClickListener(this);
     Log.i(TAG, "Added Button Listener");
 
@@ -53,7 +49,7 @@ public class FragmentEditPowers extends Fragment implements OnClickListener {
     updatePowerList();
 
     //Adding long click deletion
-    ListView lv = (ListView) view.findViewById(R.id.listViewPowers);
+    ListView lv = view.findViewById(R.id.listViewPowers);
     lv.setOnItemLongClickListener(new OnItemLongClickListener() {
 
       @Override
@@ -123,9 +119,9 @@ public class FragmentEditPowers extends Fragment implements OnClickListener {
   public void updatePowerList() {
     //Will use this to update our Powerlist later
     Log.i(TAG, "powerList Updating");
-    powerAdapter = new PowerAdapter((EditActivity) getActivity(),
+    powerAdapter = new PowerAdapter(getActivity(),
         ((EditActivity) getActivity()).character.getPowers());
-    ListView listPowers = (ListView) view.findViewById(R.id.listViewPowers);
+    ListView listPowers = view.findViewById(R.id.listViewPowers);
     listPowers.setAdapter(powerAdapter);
   }
 

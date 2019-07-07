@@ -17,6 +17,7 @@ public class Description {
   private String height;
   private String weight;
   private String eyeColor;
+  private String hairColor;
   private String groupAffiliation;
   private String occupation;
   ArrayList<String> knownRelatives;
@@ -35,6 +36,7 @@ public class Description {
     this.height = "";
     this.weight = "";
     this.eyeColor = "";
+    this.hairColor = "";
     this.groupAffiliation = "";
     this.occupation = "";
     this.knownRelatives = new ArrayList<>();
@@ -106,6 +108,10 @@ public class Description {
     return motivation;
   }
 
+  public String getHairColor() {
+    return hairColor;
+  }
+
   //Setters
   public void setName(String name) {
     this.name = name;
@@ -165,5 +171,9 @@ public class Description {
 
   public void setMotivation(String motivation) {
     this.motivation = motivation;
+  }
+
+  public void setHairColor(String hairColor) {
+    this.hairColor = hairColor;
   }
 }

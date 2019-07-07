@@ -4,9 +4,12 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+import com.example.ListAdapters.SkillAdapater;
 import com.example.bohCharacter.Skill;
 
 /**
@@ -20,16 +23,27 @@ import com.example.bohCharacter.Skill;
  */
 public class FragmentViewSkills extends Fragment {
 
-  View view;
+  private final String TAG = "FragmentViewSkills";
+  private SkillAdapater skillAdapater;
+  private View view;
 
-  public FragmentViewSkills() {
-  }
 
   @Nullable
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
     view = inflater.inflate(R.layout.view_skills_fragment,container,false);
+    Log.i(TAG, "Bringing in character data");
+    updateSkillList();
     return view;
+  }
+
+  //Update Skill List
+  public void updateSkillList() {
+    Log.i(TAG, "Skill List Updating");
+    skillAdapater = new SkillAdapater(getActivity(),
+        ((ViewActivity) getActivity()).character.getSkills());
+    ListView listSkills = view.findViewById(R.id.listViewSkills);
+    listSkills.setAdapter(skillAdapater);
   }
 }

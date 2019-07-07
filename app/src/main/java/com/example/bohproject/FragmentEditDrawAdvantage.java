@@ -28,12 +28,10 @@ import com.example.bohCharacter.DrawAdvantage;
  */
 public class FragmentEditDrawAdvantage extends Fragment implements OnClickListener {
 
-  static final String TAG = "FragmentEditDrawAdvant";
-  View view;
-  DrawAdvanAdapter drawAdvanAdapter;
+  private static final String TAG = "FragmentEditDrawAdvant";
+  private View view;
+  private DrawAdvanAdapter drawAdvanAdapter;
 
-  public FragmentEditDrawAdvantage() {
-  }
 
   @Nullable
   @Override
@@ -42,12 +40,12 @@ public class FragmentEditDrawAdvantage extends Fragment implements OnClickListen
     view = inflater.inflate(R.layout.edit_advantage_fragment, container, false);
 
     //Add Button Listener
-    Button b = (Button) view.findViewById(R.id.buttonAddDrawAdvantage);
+    Button b = view.findViewById(R.id.buttonAddDrawAdvantage);
     b.setOnClickListener(this);
     Log.i(TAG, "Added Button Listener");
 
     //Adding long click deletion
-    ListView lv = (ListView) view.findViewById(R.id.listViewDrawAdvan);
+    ListView lv = view.findViewById(R.id.listViewDrawAdvan);
     lv.setOnItemLongClickListener(new OnItemLongClickListener() {
 
       @Override
@@ -112,9 +110,9 @@ public class FragmentEditDrawAdvantage extends Fragment implements OnClickListen
   public void updateDrawAdvanList() {
     //Add code for updating later
     Log.i(TAG, "Updating the Draw & Advantages List");
-    drawAdvanAdapter = new DrawAdvanAdapter((EditActivity) getActivity(),
+    drawAdvanAdapter = new DrawAdvanAdapter(getActivity(),
         ((EditActivity) getActivity()).character.getDrawAdvantages());
-    ListView listDrawAdvans = (ListView) view.findViewById(R.id.listViewDrawAdvan);
+    ListView listDrawAdvans = view.findViewById(R.id.listViewDrawAdvan);
     listDrawAdvans.setAdapter(drawAdvanAdapter);
   }
 

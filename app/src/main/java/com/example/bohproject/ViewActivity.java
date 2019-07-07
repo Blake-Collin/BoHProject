@@ -11,9 +11,12 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import com.example.bohCharacter.Character;
+import com.example.bohdatabase.DataBaseAccess;
+import com.google.gson.Gson;
 
 
 /**
@@ -24,6 +27,10 @@ import com.example.bohCharacter.Character;
  */
 public class ViewActivity extends AppCompatActivity {
 
+
+  private static final String TAG = "ViewActivity";
+  protected Character character;
+  protected String name;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +76,14 @@ public class ViewActivity extends AppCompatActivity {
       }
     });
 
+    Log.i(TAG, "Allocating character info");
+    //Bring in our character
+    Intent intent = getIntent();
+    String temp = intent.getStringExtra("character");
+    Gson gson = new Gson();
+    this.character = gson.fromJson(temp, Character.class);
+    this.name = this.character.getDescription().getName();
+
   }
 
   /**
@@ -100,9 +115,13 @@ public class ViewActivity extends AppCompatActivity {
           finish();
           return true;
         case (R.id.edit):
-          System.out.println("Edit has been pushed");
+          Log.i(TAG, "Moving to the Edit View");
+
           //Do something for Edit
           intent = new Intent(this, EditActivity.class );
+          Gson gson = new Gson();
+          String temp = gson.toJson(character);
+          intent.putExtra("character", temp);
           startActivity(intent);
           finish();
           return true;
@@ -119,6 +138,17 @@ public class ViewActivity extends AppCompatActivity {
                   //Yes Delete
                   System.out.println("Confirmed!");
                   //Add Character Delete here
+                  DataBaseAccess dataBaseAccess = DataBaseAccess.getInstance();
+                  if (DataBaseAccess.containsCharacter(name, ViewActivity.this)) //Need more logic
+                  {
+                    Log.i(TAG, "Deleting Character: " + name);
+                    try {
+                      DataBaseAccess
+                          .deleteCharacter(name, ViewActivity.this);
+                    } catch (Exception e) {
+                      e.printStackTrace();
+                    }
+                  }
                   Intent intent = new Intent( ViewActivity.this ,MainActivity.class);
                   startActivity(intent);
                   finish();
@@ -128,12 +158,12 @@ public class ViewActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
               //No Delete
-              System.out.println("Denied!");
+              Log.i(TAG, "Canceled Deletion");
             }
           });
-
           AlertDialog dialog = builder.create();
           dialog.show();
+
           return true;
       default:
         return true;

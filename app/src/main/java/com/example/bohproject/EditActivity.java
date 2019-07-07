@@ -1,5 +1,6 @@
 package com.example.bohproject;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 import com.example.bohCharacter.Character;
 import com.example.bohdatabase.DataBaseAccess;
 import com.google.gson.Gson;
@@ -108,10 +110,10 @@ public class EditActivity extends AppCompatActivity {
    *
    * @return completion Boolean
    */
+  @SuppressLint("NewApi")
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
     // Handle item selection
-    Intent intent = null;
 
     switch (item.getItemId()) {
       case (R.id.returnHome):
@@ -123,7 +125,7 @@ public class EditActivity extends AppCompatActivity {
             new DialogInterface.OnClickListener() {
               @Override
               public void onClick(DialogInterface dialog, int which) {
-                System.out.println("Confirmed!");
+                Log.i(TAG, "Return to home screen");
 
                 Intent intent = new Intent(EditActivity.this, MainActivity.class);
                 startActivity(intent);
@@ -133,27 +135,81 @@ public class EditActivity extends AppCompatActivity {
         builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
           @Override
           public void onClick(DialogInterface dialog, int which) {
-            //No Delete
-            System.out.println("Denied!");
+            System.out.println("Not returning home");
           }
         });
         AlertDialog dialog = builder.create();
         dialog.show();
         return true;
       case (R.id.save):
-        System.out.println("Save has been pushed");
+        Log.i(TAG, "Save has been pushed");
         //Save Character to our Database
-        DataBaseAccess dataBaseAccess = DataBaseAccess.getInstance();
+        final DataBaseAccess dataBaseAccess = DataBaseAccess.getInstance();
+        if (this.name != "" && this.name != this.character.getDescription().getName()
+            && DataBaseAccess.containsCharacter(character.getDescription().getName(), this)) {
+          AlertDialog.Builder builder3 = new AlertDialog.Builder(EditActivity.this);
+          builder3.setCancelable(true);
+          builder3.setTitle("Overwrite Character");
+          builder3.setMessage("Character Already exists, do you wish to Overwrite?");
+          builder3.setPositiveButton("Confirm",
+              new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
 
-        //To the View Activity
-        intent = new Intent(this, ViewActivity.class);
-        Gson gson = new Gson();
-        String temp = gson.toJson(character);
-        intent.putExtra("character", temp);
-        startActivity(intent);
+                  Log.i(TAG, "Deleting Old Character if it exists");
+                  if (DataBaseAccess.containsCharacter(name, EditActivity.this)) {
+                    try {
+                      DataBaseAccess.deleteCharacter(name, EditActivity.this);
+                    } catch (Exception e) {
+                      e.printStackTrace();
+                    }
+                  }
+
+                  Log.i(TAG, "Character Overwriting");
+                  try {
+                    DataBaseAccess.updateCharacter(character.getDescription().getName(), character,
+                        EditActivity.this);
+                  } catch (Exception e) {
+                    e.printStackTrace();
+                  }
+                  toViewActivity();
+                }
+              });
+          builder3
+              .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                  //No Delete
+                  Log.i(TAG, "Canceled overwrite");
+                }
+              });
+          AlertDialog dialog3 = builder3.create();
+          dialog3.show();
+        } else if (this.name != "" && DataBaseAccess.containsCharacter(this.name, this)) {
+          Log.i(TAG, "Updating Character");
+          try {
+            DataBaseAccess.updateCharacter(this.name, this.character, this);
+          } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+          }
+          toViewActivity();
+        } else if (character.getDescription().getName() == "" && this.name == "") {
+          Log.i(TAG, "The name is empty informing user we need a name");
+          Toast.makeText(EditActivity.this, "Character requires a name", Toast.LENGTH_LONG);
+        } else {
+          Log.i(TAG, "Creating new Character");
+          try {
+            DataBaseAccess.createCharacter(this.character, this);
+          } catch (Exception e) {
+            e.printStackTrace();
+          }
+          toViewActivity();
+        }
         return true;
+
       case (R.id.delete):
-        System.out.println("Delete has been pushed");
+        Log.i(TAG, "Delete has been pushed");
         //Do something for delete
         AlertDialog.Builder builder2 = new AlertDialog.Builder(EditActivity.this);
         builder2.setCancelable(true);
@@ -163,10 +219,18 @@ public class EditActivity extends AppCompatActivity {
             new DialogInterface.OnClickListener() {
               @Override
               public void onClick(DialogInterface dialog, int which) {
-                //Yes Delete
-                System.out.println("Confirmed!");
                 //ADd Character Delete here
-
+                DataBaseAccess dataBaseAccess1 = DataBaseAccess.getInstance();
+                if (DataBaseAccess.containsCharacter(name, EditActivity.this)) //Need more logic
+                {
+                  Log.i(TAG, "Deleting Character: " + name);
+                  try {
+                    DataBaseAccess
+                        .deleteCharacter(name, EditActivity.this);
+                  } catch (Exception e) {
+                    e.printStackTrace();
+                  }
+                }
                 Intent intent = new Intent(EditActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
@@ -176,10 +240,9 @@ public class EditActivity extends AppCompatActivity {
           @Override
           public void onClick(DialogInterface dialog, int which) {
             //No Delete
-            System.out.println("Denied!");
+            Log.i(TAG, "Canceled the deletion of " + name);
           }
         });
-
         AlertDialog dialog2 = builder2.create();
         dialog2.show();
 
@@ -187,5 +250,15 @@ public class EditActivity extends AppCompatActivity {
       default:
         return true;
     }
+  }
+
+  private void toViewActivity() {
+    //To the View Activity
+    Intent intent = new Intent(this, ViewActivity.class);
+    Gson gson = new Gson();
+    String temp = gson.toJson(character);
+    intent.putExtra("character", temp);
+    startActivity(intent);
+    finish();
   }
 }

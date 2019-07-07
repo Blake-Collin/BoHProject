@@ -31,9 +31,9 @@ import java.util.ArrayList;
 
 public class FragmentEditSkills extends Fragment implements OnClickListener {
 
-  static final String TAG = "FragmentEditSkills";
-  View view;
-  ArrayList<String> subSkills = new ArrayList<>();
+  private static final String TAG = "FragmentEditSkills";
+  private View view;
+  private ArrayList<String> subSkills = new ArrayList<>();
   private SkillAdapater skillAdapater;
 
   public FragmentEditSkills() {
@@ -49,15 +49,15 @@ public class FragmentEditSkills extends Fragment implements OnClickListener {
     view = inflater.inflate(R.layout.edit_skills_fragment, container, false);
 
     //Button listener Setups
-    Button b = (Button) view.findViewById(R.id.buttonAddSkill);
-    Button b2 = (Button) view.findViewById(R.id.buttonAddSubSkill);
+    Button b = view.findViewById(R.id.buttonAddSkill);
+    Button b2 = view.findViewById(R.id.buttonAddSubSkill);
     b.setOnClickListener(this);
     b2.setOnClickListener(this);
 
     Log.i(TAG, "Added Button Listeners");
 
     //Adding long click deletion
-    ListView lv = (ListView) view.findViewById(R.id.listViewSkills);
+    ListView lv = view.findViewById(R.id.listViewSkills);
     lv.setOnItemLongClickListener(new OnItemLongClickListener() {
 
       @Override
@@ -140,9 +140,9 @@ public class FragmentEditSkills extends Fragment implements OnClickListener {
   //Update Skill List
   public void updateSkillList() {
     Log.i(TAG, "Skill List Updating");
-    skillAdapater = new SkillAdapater((EditActivity) getActivity(),
+    skillAdapater = new SkillAdapater(getActivity(),
         ((EditActivity) getActivity()).character.getSkills());
-    ListView listSkills = (ListView) view.findViewById(R.id.listViewSkills);
+    ListView listSkills = view.findViewById(R.id.listViewSkills);
     listSkills.setAdapter(skillAdapater);
   }
 

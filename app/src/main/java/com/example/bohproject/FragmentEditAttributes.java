@@ -4,10 +4,11 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnFocusChangeListener;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -23,8 +24,8 @@ import android.widget.TextView;
  */
 public class FragmentEditAttributes extends Fragment {
 
-  static final String TAG = "FragmentEditAttributes";
-  View view;
+  private static final String TAG = "FragmentEditAttributes";
+  private View view;
 
   public FragmentEditAttributes() {
   }
@@ -39,7 +40,7 @@ public class FragmentEditAttributes extends Fragment {
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
 
-    view = (View) inflater.inflate(R.layout.edit_attributes_fragment, container, false);
+    view = inflater.inflate(R.layout.edit_attributes_fragment, container, false);
 
     //Assign attribute values
     Log.i(TAG, "Assigning Values");
@@ -91,210 +92,211 @@ public class FragmentEditAttributes extends Fragment {
     //addTextChangedListeners
 
     //Dex
-    EditText editTextTemp = (EditText) view.findViewById(R.id.textDexValue);
-    editTextTemp.setOnFocusChangeListener(new OnFocusChangeListener() {
-
-      public void onFocusChange(View v, boolean hasFocus) {
-
-        if (hasFocus) {
-          // If view having focus.
-        } else {
-          final EditText editText = (EditText) view.findViewById(R.id.textDexValue);
-          if (!(editText.getText().toString().matches(""))) {
-            Log.i(TAG, "Dex Changed to: " + editText.getText());
-            ((EditActivity) getActivity()).character.getAttributes()
-                .setDex(Integer.parseInt(editText.getText().toString()));
-          }
+    EditText editTextTemp = view.findViewById(R.id.textDexValue);
+    editTextTemp.addTextChangedListener(new TextWatcher() {
+      public void afterTextChanged(Editable s) {
+        final EditText editText = view.findViewById(R.id.textDexValue);
+        if (!(editText.getText().toString().matches(""))) {
+          Log.i(TAG, "Dex Changed to: " + Integer.parseInt(editText.getText().toString()));
+          ((EditActivity) getActivity()).character.getAttributes()
+              .setDex(Integer.parseInt(editText.getText().toString()));
         }
+      }
+
+      public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+      }
+
+      public void onTextChanged(CharSequence s, int start, int before, int count) {
       }
     });
 
     //Str
-    editTextTemp = (EditText) view.findViewById(R.id.textStrValue);
-    editTextTemp.setOnFocusChangeListener(new OnFocusChangeListener() {
-
-      public void onFocusChange(View v, boolean hasFocus) {
-
-        if (hasFocus) {
-          // If view having focus.
-        } else {
-          final EditText editText = (EditText) view.findViewById(R.id.textStrValue);
-          if (!(editText.getText().toString().matches(""))) {
-            Log.i(TAG, "Str Changed to: " + editText.getText());
-            ((EditActivity) getActivity()).character.getAttributes()
-                .setStr(Integer.parseInt(editText.getText().toString()));
-          }
+    editTextTemp = view.findViewById(R.id.textStrValue);
+    editTextTemp.addTextChangedListener(new TextWatcher() {
+      public void afterTextChanged(Editable s) {
+        final EditText editText = view.findViewById(R.id.textStrValue);
+        if (!(editText.getText().toString().matches(""))) {
+          Log.i(TAG, "Str Changed to: " + Integer.parseInt(editText.getText().toString()));
+          ((EditActivity) getActivity()).character.getAttributes()
+              .setStr(Integer.parseInt(editText.getText().toString()));
         }
+      }
+
+      public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+      }
+
+      public void onTextChanged(CharSequence s, int start, int before, int count) {
       }
     });
 
     //Body
-    editTextTemp = (EditText) view.findViewById(R.id.textBodyValue);
-    editTextTemp.setOnFocusChangeListener(new OnFocusChangeListener() {
-
-      public void onFocusChange(View v, boolean hasFocus) {
-
-        if (hasFocus) {
-          // If view having focus.
-        } else {
-          final EditText editText = (EditText) view.findViewById(R.id.textBodyValue);
-          if (!(editText.getText().toString().matches(""))) {
-            Log.i(TAG, "Body Changed to: " + editText.getText());
-            ((EditActivity) getActivity()).character.getAttributes()
-                .setBody(Integer.parseInt(editText.getText().toString()));
-          }
+    editTextTemp = view.findViewById(R.id.textBodyValue);
+    editTextTemp.addTextChangedListener(new TextWatcher() {
+      public void afterTextChanged(Editable s) {
+        final EditText editText = view.findViewById(R.id.textBodyValue);
+        if (!(editText.getText().toString().matches(""))) {
+          Log.i(TAG, "Body Changed to: " + Integer.parseInt(editText.getText().toString()));
+          ((EditActivity) getActivity()).character.getAttributes()
+              .setBody(Integer.parseInt(editText.getText().toString()));
         }
+      }
+
+      public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+      }
+
+      public void onTextChanged(CharSequence s, int start, int before, int count) {
       }
     });
 
     //Int
-    editTextTemp = (EditText) view.findViewById(R.id.textIntValue);
-    editTextTemp.setOnFocusChangeListener(new OnFocusChangeListener() {
-
-      public void onFocusChange(View v, boolean hasFocus) {
-
-        if (hasFocus) {
-          // If view having focus.
-        } else {
-          final EditText editText = (EditText) view.findViewById(R.id.textIntValue);
-          if (!(editText.getText().toString().matches(""))) {
-            Log.i(TAG, "Int Changed to: " + editText.getText());
-            ((EditActivity) getActivity()).character.getAttributes()
-                .setInt(Integer.parseInt(editText.getText().toString()));
-          }
+    editTextTemp = view.findViewById(R.id.textIntValue);
+    editTextTemp.addTextChangedListener(new TextWatcher() {
+      public void afterTextChanged(Editable s) {
+        final EditText editText = view.findViewById(R.id.textIntValue);
+        if (!(editText.getText().toString().matches(""))) {
+          Log.i(TAG, "Int Changed to: " + Integer.parseInt(editText.getText().toString()));
+          ((EditActivity) getActivity()).character.getAttributes()
+              .setInt(Integer.parseInt(editText.getText().toString()));
         }
+      }
+
+      public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+      }
+
+      public void onTextChanged(CharSequence s, int start, int before, int count) {
       }
     });
 
     //Will
-    editTextTemp = (EditText) view.findViewById(R.id.textWillValue);
-    editTextTemp.setOnFocusChangeListener(new OnFocusChangeListener() {
-
-      public void onFocusChange(View v, boolean hasFocus) {
-
-        if (hasFocus) {
-          // If view having focus.
-        } else {
-          final EditText editText = (EditText) view.findViewById(R.id.textWillValue);
-          if (!(editText.getText().toString().matches(""))) {
-            Log.i(TAG, "Will Changed to: " + editText.getText());
-            ((EditActivity) getActivity()).character.getAttributes()
-                .setWill(Integer.parseInt(editText.getText().toString()));
-          }
+    editTextTemp = view.findViewById(R.id.textWillValue);
+    editTextTemp.addTextChangedListener(new TextWatcher() {
+      public void afterTextChanged(Editable s) {
+        final EditText editText = view.findViewById(R.id.textWillValue);
+        if (!(editText.getText().toString().matches(""))) {
+          Log.i(TAG, "Will Changed to: " + Integer.parseInt(editText.getText().toString()));
+          ((EditActivity) getActivity()).character.getAttributes()
+              .setWill(Integer.parseInt(editText.getText().toString()));
         }
+      }
+
+      public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+      }
+
+      public void onTextChanged(CharSequence s, int start, int before, int count) {
       }
     });
 
     //Mind
-    editTextTemp = (EditText) view.findViewById(R.id.textMindValue);
-    editTextTemp.setOnFocusChangeListener(new OnFocusChangeListener() {
-
-      public void onFocusChange(View v, boolean hasFocus) {
-
-        if (hasFocus) {
-          // If view having focus.
-        } else {
-          final EditText editText = (EditText) view.findViewById(R.id.textMindValue);
-          if (!(editText.getText().toString().matches(""))) {
-            Log.i(TAG, "Mind Changed to: " + editText.getText());
-            ((EditActivity) getActivity()).character.getAttributes()
-                .setMind(Integer.parseInt(editText.getText().toString()));
-          }
+    editTextTemp = view.findViewById(R.id.textMindValue);
+    editTextTemp.addTextChangedListener(new TextWatcher() {
+      public void afterTextChanged(Editable s) {
+        final EditText editText = view.findViewById(R.id.textMindValue);
+        if (!(editText.getText().toString().matches(""))) {
+          Log.i(TAG, "Mind Changed to: " + Integer.parseInt(editText.getText().toString()));
+          ((EditActivity) getActivity()).character.getAttributes()
+              .setMind(Integer.parseInt(editText.getText().toString()));
         }
+      }
+
+      public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+      }
+
+      public void onTextChanged(CharSequence s, int start, int before, int count) {
       }
     });
 
     //Infl
-    editTextTemp = (EditText) view.findViewById(R.id.textInflValue);
-    editTextTemp.setOnFocusChangeListener(new OnFocusChangeListener() {
-
-      public void onFocusChange(View v, boolean hasFocus) {
-
-        if (hasFocus) {
-          // If view having focus.
-        } else {
-          final EditText editText = (EditText) view.findViewById(R.id.textInflValue);
-          if (!(editText.getText().toString().matches(""))) {
-            Log.i(TAG, "Infl Changed to: " + editText.getText());
-            ((EditActivity) getActivity()).character.getAttributes()
-                .setInfl(Integer.parseInt(editText.getText().toString()));
-          }
+    editTextTemp = view.findViewById(R.id.textInflValue);
+    editTextTemp.addTextChangedListener(new TextWatcher() {
+      public void afterTextChanged(Editable s) {
+        final EditText editText = view.findViewById(R.id.textInflValue);
+        if (!(editText.getText().toString().matches(""))) {
+          Log.i(TAG, "Infl Changed to: " + Integer.parseInt(editText.getText().toString()));
+          ((EditActivity) getActivity()).character.getAttributes()
+              .setInfl(Integer.parseInt(editText.getText().toString()));
         }
+      }
+
+      public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+      }
+
+      public void onTextChanged(CharSequence s, int start, int before, int count) {
       }
     });
 
     //Aura
-    editTextTemp = (EditText) view.findViewById(R.id.textAuraValue);
-    editTextTemp.setOnFocusChangeListener(new OnFocusChangeListener() {
-
-      public void onFocusChange(View v, boolean hasFocus) {
-
-        if (hasFocus) {
-          // If view having focus.
-        } else {
-          final EditText editText = (EditText) view.findViewById(R.id.textAuraValue);
-          if (!(editText.getText().toString().matches(""))) {
-            Log.i(TAG, "Aura Changed to: " + editText.getText());
-            ((EditActivity) getActivity()).character.getAttributes()
-                .setAura(Integer.parseInt(editText.getText().toString()));
-          }
+    editTextTemp = view.findViewById(R.id.textAuraValue);
+    editTextTemp.addTextChangedListener(new TextWatcher() {
+      public void afterTextChanged(Editable s) {
+        final EditText editText = view.findViewById(R.id.textAuraValue);
+        if (!(editText.getText().toString().matches(""))) {
+          Log.i(TAG, "Aura Changed to: " + Integer.parseInt(editText.getText().toString()));
+          ((EditActivity) getActivity()).character.getAttributes()
+              .setAura(Integer.parseInt(editText.getText().toString()));
         }
+      }
+
+      public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+      }
+
+      public void onTextChanged(CharSequence s, int start, int before, int count) {
       }
     });
 
     //Spirit
-    editTextTemp = (EditText) view.findViewById(R.id.textSpiritValue);
-    editTextTemp.setOnFocusChangeListener(new OnFocusChangeListener() {
-
-      public void onFocusChange(View v, boolean hasFocus) {
-
-        if (hasFocus) {
-          // If view having focus.
-        } else {
-          final EditText editText = (EditText) view.findViewById(R.id.textSpiritValue);
-          if (!(editText.getText().toString().matches(""))) {
-            Log.i(TAG, "Spirit Changed to: " + editText.getText());
-            ((EditActivity) getActivity()).character.getAttributes()
-                .setSpirit(Integer.parseInt(editText.getText().toString()));
-          }
+    editTextTemp = view.findViewById(R.id.textSpiritValue);
+    editTextTemp.addTextChangedListener(new TextWatcher() {
+      public void afterTextChanged(Editable s) {
+        final EditText editText = view.findViewById(R.id.textSpiritValue);
+        if (!(editText.getText().toString().matches(""))) {
+          Log.i(TAG, "Spirit Changed to: " + Integer.parseInt(editText.getText().toString()));
+          ((EditActivity) getActivity()).character.getAttributes()
+              .setSpirit(Integer.parseInt(editText.getText().toString()));
         }
+      }
+
+      public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+      }
+
+      public void onTextChanged(CharSequence s, int start, int before, int count) {
       }
     });
 
     //Wealth
-    editTextTemp = (EditText) view.findViewById(R.id.textWealthValue);
-    editTextTemp.setOnFocusChangeListener(new OnFocusChangeListener() {
-
-      public void onFocusChange(View v, boolean hasFocus) {
-
-        if (hasFocus) {
-          // If view having focus.
-        } else {
-          final EditText editText = (EditText) view.findViewById(R.id.textWealthValue);
-          if (!(editText.getText().toString().matches(""))) {
-            Log.i(TAG, "Wealth Changed to: " + editText.getText());
-            ((EditActivity) getActivity()).character.getAttributes()
-                .setWealth(Integer.parseInt(editText.getText().toString()));
-          }
+    editTextTemp = view.findViewById(R.id.textWealthValue);
+    editTextTemp.addTextChangedListener(new TextWatcher() {
+      public void afterTextChanged(Editable s) {
+        final EditText editText = view.findViewById(R.id.textWealthValue);
+        if (!(editText.getText().toString().matches(""))) {
+          Log.i(TAG, "Wealth Changed to: " + Integer.parseInt(editText.getText().toString()));
+          ((EditActivity) getActivity()).character.getAttributes()
+              .setWealth(Integer.parseInt(editText.getText().toString()));
         }
       }
+
+      public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+      }
+
+      public void onTextChanged(CharSequence s, int start, int before, int count) {
+      }
     });
+
     //HeroPoints
-    editTextTemp = (EditText) view.findViewById(R.id.textHeroPointsValue);
-    editTextTemp.setOnFocusChangeListener(new OnFocusChangeListener() {
-
-      public void onFocusChange(View v, boolean hasFocus) {
-
-        if (hasFocus) {
-          // If view having focus.
-        } else {
-          final EditText editText = (EditText) view.findViewById(R.id.textHeroPointsValue);
-          if (!(editText.getText().toString().matches(""))) {
-            Log.i(TAG, "Dex Changed to: " + editText.getText());
-            ((EditActivity) getActivity()).character.getAttributes()
-                .setHeroPoints(Integer.parseInt(editText.getText().toString()));
-          }
+    editTextTemp = view.findViewById(R.id.textHeroPointsValue);
+    editTextTemp.addTextChangedListener(new TextWatcher() {
+      public void afterTextChanged(Editable s) {
+        final EditText editText = view.findViewById(R.id.textHeroPointsValue);
+        if (!(editText.getText().toString().matches(""))) {
+          Log.i(TAG, "Hero Points Changed to: " + Integer.parseInt(editText.getText().toString()));
+          ((EditActivity) getActivity()).character.getAttributes()
+              .setHeroPoints(Integer.parseInt(editText.getText().toString()));
         }
+      }
+
+      public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+      }
+
+      public void onTextChanged(CharSequence s, int start, int before, int count) {
       }
     });
 
