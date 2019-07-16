@@ -18,6 +18,12 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Our main Activity for showing our list of {@link Character}s
+ *
+ * @author Collin Blake
+ * @Since 7-15-2019
+ */
 public class MainActivity extends AppCompatActivity {
 
   private CharacterAdapter characterAdapter;
