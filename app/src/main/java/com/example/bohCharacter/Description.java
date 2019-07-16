@@ -176,4 +176,26 @@ public class Description {
   public void setHairColor(String hairColor) {
     this.hairColor = hairColor;
   }
+
+  @Override
+  public String toString() {
+    return "Description{" +
+        "name='" + name + '\'' +
+        ", type='" + type + '\'' +
+        ", motivation='" + motivation + '\'' +
+        ", alterEgo='" + alterEgo + '\'' +
+        ", height='" + height + '\'' +
+        ", weight='" + weight + '\'' +
+        ", eyeColor='" + eyeColor + '\'' +
+        ", hairColor='" + hairColor + '\'' +
+        ", groupAffiliation='" + groupAffiliation + '\'' +
+        ", occupation='" + occupation + '\'' +
+        ", knownRelatives=" + knownRelatives +
+        ", baseOfOperations='" + baseOfOperations + '\'' +
+        ", martialStatus='" + martialStatus + '\'' +
+        ", personality='" + personality + '\'' +
+        ", history='" + history + '\'' +
+        ", description='" + description + '\'' +
+        '}';
+  }
 }

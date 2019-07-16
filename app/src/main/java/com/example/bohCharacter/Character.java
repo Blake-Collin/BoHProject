@@ -69,4 +69,15 @@ public class Character {
   public void setDescription(Description description) {
     this.description = description;
   }
+
+  @Override
+  public String toString() {
+    return "Character{" +
+        "attributes=" + attributes +
+        ", powers=" + powers +
+        ", skills=" + skills +
+        ", drawAdvantages=" + drawAdvantages +
+        ", description=" + description +
+        '}';
+  }
 }

@@ -35,4 +35,12 @@ public class Power {
   public void setAPs(int APs) {
     this.APs = APs;
   }
+
+  @Override
+  public String toString() {
+    return "Power{" +
+        "name='" + name + '\'' +
+        ", APs=" + APs +
+        '}';
+  }
 }

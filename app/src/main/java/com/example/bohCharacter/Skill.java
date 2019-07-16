@@ -46,4 +46,13 @@ public class Skill {
   public void setSubskills(ArrayList<String> subskills) {
     this.subskills = subskills;
   }
+
+  @Override
+  public String toString() {
+    return "Skill{" +
+        "name='" + name + '\'' +
+        ", APs=" + APs +
+        ", subskills=" + subskills +
+        '}';
+  }
 }

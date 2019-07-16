@@ -34,7 +34,7 @@ public class EditActivity extends AppCompatActivity {
 
   /**
    * Requires an intent passed with json object of {@link Character} labeled at the hashmap
-   * "character" Will also add our
+   * "character"
    */
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -141,12 +141,13 @@ public class EditActivity extends AppCompatActivity {
         AlertDialog dialog = builder.create();
         dialog.show();
         return true;
+
       case (R.id.save):
         Log.i(TAG, "Save has been pushed");
         //Save Character to our Database
         final DataBaseAccess dataBaseAccess = DataBaseAccess.getInstance();
-        if (this.name != "" && this.name != this.character.getDescription().getName()
-            && DataBaseAccess.containsCharacter(character.getDescription().getName(), this)) {
+        if (this.name.equals("") && DataBaseAccess
+            .containsCharacter(character.getDescription().getName(), this)) {
           AlertDialog.Builder builder3 = new AlertDialog.Builder(EditActivity.this);
           builder3.setCancelable(true);
           builder3.setTitle("Overwrite Character");
@@ -155,16 +156,6 @@ public class EditActivity extends AppCompatActivity {
               new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-
-                  Log.i(TAG, "Deleting Old Character if it exists");
-                  if (DataBaseAccess.containsCharacter(name, EditActivity.this)) {
-                    try {
-                      DataBaseAccess.deleteCharacter(name, EditActivity.this);
-                    } catch (Exception e) {
-                      e.printStackTrace();
-                    }
-                  }
-
                   Log.i(TAG, "Character Overwriting");
                   try {
                     DataBaseAccess.updateCharacter(character.getDescription().getName(), character,
@@ -185,7 +176,8 @@ public class EditActivity extends AppCompatActivity {
               });
           AlertDialog dialog3 = builder3.create();
           dialog3.show();
-        } else if (this.name != "" && DataBaseAccess.containsCharacter(this.name, this)) {
+        } else if (this.name.equals(this.character.getDescription().getName()) && DataBaseAccess
+            .containsCharacter(this.name, this)) {
           Log.i(TAG, "Updating Character");
           try {
             DataBaseAccess.updateCharacter(this.name, this.character, this);
@@ -194,9 +186,9 @@ public class EditActivity extends AppCompatActivity {
             return false;
           }
           toViewActivity();
-        } else if (character.getDescription().getName() == "" && this.name == "") {
+        } else if (this.name.equals("") && this.character.getDescription().getName().equals("")) {
           Log.i(TAG, "The name is empty informing user we need a name");
-          Toast.makeText(EditActivity.this, "Character requires a name", Toast.LENGTH_LONG);
+          Toast.makeText(this, "Character Name is Required", Toast.LENGTH_LONG).show();
         } else {
           Log.i(TAG, "Creating new Character");
           try {

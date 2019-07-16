@@ -33,4 +33,12 @@ public class DrawAdvantage {
   public String getDescription() {
     return description;
   }
+
+  @Override
+  public String toString() {
+    return "DrawAdvantage{" +
+        "name='" + name + '\'' +
+        ", description='" + description + '\'' +
+        '}';
+  }
 }

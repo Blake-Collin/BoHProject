@@ -47,12 +47,12 @@ public class DataBaseAccess {
     //Pull in map
     HashMap<String, Character> map = getMap(context);
     Log.i(TAG, "Character Update in Progress");
-    if (name != character.getDescription().getName()) {
-      map.remove(name);
-      map.put(character.getDescription().getName(), character);
+    if (!map.containsKey(name)) {
+      map.put(name, character);
     } else {
       map.replace(name, character);
     }
+    saveMap(map, context);
   }
 
   public static void deleteCharacter(String name, Context context) throws Exception {
@@ -134,6 +134,5 @@ public class DataBaseAccess {
     edit.putString(MAPNAME, temp);
     edit.commit();
   }
-
 
 }
